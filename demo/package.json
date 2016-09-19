@@ -9,8 +9,8 @@
     }
   },
   "dependencies": {
-    "nativescript-testplugin": "file:..",
-    "tns-core-modules": "^2.2.1"
+    "nativescript-adobe-analytics": "file:..",
+    "tns-core-modules": "2.2.1"
   },
   "devDependencies": {
     "babel-traverse": "6.7.6",
@@ -18,7 +18,7 @@
     "babylon": "6.7.0",
     "filewalker": "0.1.2",
     "lazy": "1.0.11",
-    "nativescript-dev-typescript": "^0.3.2",
-    "typescript": "^1.8.10"
+    "nativescript-dev-typescript": "0.3.2",
+    "typescript": "1.8.10"
   }
 }

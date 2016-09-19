@@ -1,5 +1,5 @@
 ﻿import * as application from "application";
-import {AdobeAnalytics} from "nativescript-testplugin";
+import {AdobeAnalytics} from "nativescript-adobe-analytics";
 
 application.on(application.launchEvent, function (args: application.ApplicationEventData) {
     if (args.android) {

@@ -2,7 +2,7 @@ import * as observable from "data/observable";
 import * as pages from "ui/page";
 import {SecondPageModel} from "./second-view-model";
 import * as frameModule from "ui/frame";
-import {AdobeAnalytics} from "nativescript-testplugin";
+import {AdobeAnalytics} from "nativescript-adobe-analytics";
 
 // Event handler for Page "loaded" event attached in second-page.xml
 export function pageLoaded(args: observable.EventData) {
@@ -13,11 +13,12 @@ export function pageLoaded(args: observable.EventData) {
 }
 
 export function timedAction(): void {
-	AdobeAnalytics.getInstance().trackTimedActionStart('timed.action', null);
-	var millisecondsToWait = 500;
-	setTimeout(function() {
-	    AdobeAnalytics.getInstance().trackTimedActionEnd('timed.action', null);
-	}, millisecondsToWait);
+	// TODO
+	// AdobeAnalytics.getInstance().trackTimedActionStart('timed.action', null);
+	// var millisecondsToWait = 500;
+	// setTimeout(function() {
+	//     AdobeAnalytics.getInstance().trackTimedActionEnd('timed.action', null);
+	// }, millisecondsToWait);
 }
 
 export function previousState(): void {

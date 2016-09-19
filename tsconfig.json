@@ -12,9 +12,9 @@
       "node_modules/tns-platform-declarations/tns-core-modules/android17.d.ts",
       "node_modules/tns-platform-declarations/tns-core-modules/ios.d.ts",
       "node_modules/tns-platform-declarations/tns-core-modules/org.nativescript.widgets.d.ts",
-      "testplugin.common.ts",
-      "testplugin.android.ts", 
-      "testplugin.ios.ts"
+      "adobe-analytics.common.ts",
+      "adobe-analytics.android.ts", 
+      "adobe-analytics.ios.ts"
     ],
     "compileOnSave": false
 }

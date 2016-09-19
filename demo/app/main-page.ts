@@ -2,7 +2,7 @@ import * as observable from "data/observable";
 import * as pages from "ui/page";
 import {HelloWorldModel} from "./main-view-model";
 import * as frameModule from "ui/frame";
-import {AdobeAnalytics} from "nativescript-testplugin";
+import {AdobeAnalytics} from "nativescript-adobe-analytics";
 
 // Event handler for Page "loaded" event attached in main-page.xml
 export function pageLoaded(args: observable.EventData) {
