@@ -21,4 +21,15 @@ application.on(application.resumeEvent, function (args: application.ApplicationE
     }
 });
 
+
+if (application.android) {
+    application.android.on(application.AndroidApplication.activityPausedEvent, function (args: application.AndroidActivityEventData) {
+        AdobeAnalytics.getInstance().pauseCollectingLifecycleData();
+    });
+
+    application.android.on(application.AndroidApplication.activityResumedEvent, function (args: application.AndroidActivityEventData) {
+        AdobeAnalytics.getInstance().collectLifecycleData(application.android.foregroundActivity);
+    });
+}
+
 application.start({ moduleName: "main-page" });

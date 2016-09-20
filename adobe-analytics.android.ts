@@ -38,24 +38,32 @@ constructor() {
   }
 
   public trackState(state: string, additional: {[key: string]:any}): void {
-    com.adobe.mobile.Analytics.trackState(state, additional);
-    console.log(com.adobe.mobile.Config.getDebugLogging());
+    com.adobe.mobile.Analytics.trackState(state, this.convertToHashMap(additional));
   } 
 
   public trackAction(action: string, additional: {[key: string]:any}): void {
-    com.adobe.mobile.Analytics.trackAction(action, additional);
+    com.adobe.mobile.Analytics.trackAction(action, this.convertToHashMap(additional));
   }  
    
   public trackTimedActionStart(action: string, additional: {[key: string]:any}): void {
-    com.adobe.mobile.Analytics.trackTimedActionStart(action, additional);
+    com.adobe.mobile.Analytics.trackTimedActionStart(action, this.convertToHashMap(additional));
   } 
    
   public trackTimedActionUpdate(action: string, additional: {[key: string]:any}): void {
-    com.adobe.mobile.Analytics.trackTimedActionUpdate(action, additional);
+    com.adobe.mobile.Analytics.trackTimedActionUpdate(action, this.convertToHashMap(additional));
   } 
    
   public trackTimedActionEnd(action: string): void {
-    com.adobe.mobile.Analytics.trackTimedActionEnd(action);
+    com.adobe.mobile.Analytics.trackTimedActionEnd(action, null);
+  }
+
+  private convertToHashMap(dictionary: {[key: string]:any}): java.util.Map<String, Object> {
+    var map = new java.util.HashMap();
+    for (var key in dictionary) {
+      var value = dictionary[key];
+      map.put(key, value);
+    }
+    return map;
   }
 
 }

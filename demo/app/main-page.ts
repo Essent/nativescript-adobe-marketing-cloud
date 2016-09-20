@@ -12,11 +12,17 @@ export function navigatingTo(args: EventData) {
 }
 
 export function action(): void {
-	AdobeAnalytics.getInstance().trackAction('SomeAction', null);
+	var data: { [id: string]: any } = {
+   		"ActionData": "ThisIsActionData"
+	};
+	AdobeAnalytics.getInstance().trackAction('SomeAction', data);
 }
 
 export function nextState(): void {
 	let topmost = frameModule.topmost();
     topmost.navigate("second-page");
-    AdobeAnalytics.getInstance().trackState('SecondState', null);
+    var data: { [id: string]: any } = {
+   		"StateData": "ThisIsDataFromTheFirstState"
+	};
+    AdobeAnalytics.getInstance().trackState('SecondState', data);
 }

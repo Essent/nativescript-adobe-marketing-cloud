@@ -18,4 +18,5 @@ export declare class AdobeAnalytics {
         [key: string]: any;
     }): void;
     trackTimedActionEnd(action: string): void;
+    private convertToHashMap(dictionary);
 }

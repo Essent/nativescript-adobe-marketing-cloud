@@ -1,7 +1,9 @@
 <Page xmlns="http://schemas.nativescript.org/tns.xsd" loaded="pageLoaded">
   <StackLayout orientation="vertical">
     <Label text="We're on the second page here buddy" class="message" textWrap="true"/>
-    <Button text="Click me for timed action" tap="timedAction"/>
+    <Button text="Start timed action" tap="startTimedAction"/>
+    <Button text="Update timed action" tap="updateTimedAction"/>
+    <Button text="End timed action" tap="endTimedAction"/>
     <Button text="Click me to return to the previous state" tap="previousState"/>
   </StackLayout>
 </Page>

@@ -12,17 +12,29 @@ export function pageLoaded(args: observable.EventData) {
 
 }
 
-export function timedAction(): void {
-	// TODO
-	// AdobeAnalytics.getInstance().trackTimedActionStart('timed.action', null);
-	// var millisecondsToWait = 500;
-	// setTimeout(function() {
-	//     AdobeAnalytics.getInstance().trackTimedActionEnd('timed.action', null);
-	// }, millisecondsToWait);
+export function startTimedAction(): void {
+	var data: { [id: string]: any } = {
+   		"TimedActionStartData": "ThisIsData"
+	};
+	AdobeAnalytics.getInstance().trackTimedActionStart('TimedAction', data);
+}
+
+export function updateTimedAction(): void {
+	var data: { [id: string]: any } = {
+   		"TimedActionUpdateData": "ThisIsUpdatedData"
+	};
+	AdobeAnalytics.getInstance().trackTimedActionUpdate('TimedAction', data);
+}
+
+export function endTimedAction(): void {
+	AdobeAnalytics.getInstance().trackTimedActionEnd('TimedAction');
 }
 
 export function previousState(): void {
 	let topmost = frameModule.topmost();
     topmost.navigate("main-page");
-    AdobeAnalytics.getInstance().trackState('MainState', null);
+    var data: { [id: string]: any } = {
+   		"TrackStateData": "ThisIsTrackStateData"
+	};
+    AdobeAnalytics.getInstance().trackState('MainState', data);
 }
