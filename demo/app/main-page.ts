@@ -1,15 +1,14 @@
-import * as observable from "data/observable";
-import * as pages from "ui/page";
-import {HelloWorldModel} from "./main-view-model";
+import { EventData } from 'data/observable';
+import { Page } from 'ui/page';
 import * as frameModule from "ui/frame";
-import {AdobeAnalytics} from "nativescript-adobe-analytics";
+import { HelloWorldModel } from './main-view-model';
+import { AdobeAnalytics } from "nativescript-adobe-analytics";
 
-// Event handler for Page "loaded" event attached in main-page.xml
-export function pageLoaded(args: observable.EventData) {
-    // Get the event sender
-    let page = <pages.Page>args.object;
-    page.bindingContext = new HelloWorldModel();
-
+// Event handler for Page "navigatingTo" event attached in main-page.xml
+export function navigatingTo(args: EventData) {
+  // Get the event sender
+  let page = <Page>args.object;
+  page.bindingContext = new HelloWorldModel();
 }
 
 export function action(): void {

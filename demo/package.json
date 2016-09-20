@@ -1,24 +1,28 @@
 {
+  "description": "NativeScript Application",
+  "license": "SEE LICENSE IN <your-license-filename>",
+  "readme": "NativeScript Application",
+  "repository": "<fill-your-repository-here>",
   "nativescript": {
     "id": "org.nativescript.demo",
     "tns-ios": {
-      "version": "2.2.1"
+      "version": "2.3.0"
     },
     "tns-android": {
-      "version": "2.2.0"
+      "version": "2.3.0"
     }
   },
   "dependencies": {
     "nativescript-adobe-analytics": "file:..",
-    "tns-core-modules": "2.2.1"
+    "tns-core-modules": "2.3.0"
   },
   "devDependencies": {
-    "babel-traverse": "6.7.6",
-    "babel-types": "6.7.7",
-    "babylon": "6.7.0",
-    "filewalker": "0.1.2",
+    "babel-traverse": "6.15.0",
+    "babel-types": "6.15.0",
+    "babylon": "6.10.0",
     "lazy": "1.0.11",
-    "nativescript-dev-typescript": "0.3.2",
-    "typescript": "1.8.10"
+    "nativescript-dev-typescript": "^0.3.2",
+    "tns-platform-declarations": "2.2.0",
+    "typescript": "^1.8.10"
   }
 }

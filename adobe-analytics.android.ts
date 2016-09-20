@@ -3,6 +3,7 @@ import * as dialogs from "ui/dialogs";
 
 declare var android: any;
 declare var com: any;
+declare var java: any;
 
 export class AdobeAnalytics {
 
@@ -28,6 +29,7 @@ constructor() {
   }
 
   public collectLifecycleData(activity:android.app.Activity): void {
+    com.adobe.mobile.Config.setDebugLogging(java.lang.Boolean.valueOf(true));
     com.adobe.mobile.Config.collectLifecycleData(activity);
   }
 
@@ -37,6 +39,7 @@ constructor() {
 
   public trackState(state: string, additional: {[key: string]:any}): void {
     com.adobe.mobile.Analytics.trackState(state, additional);
+    console.log(com.adobe.mobile.Config.getDebugLogging());
   } 
 
   public trackAction(action: string, additional: {[key: string]:any}): void {

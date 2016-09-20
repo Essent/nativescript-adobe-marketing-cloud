@@ -1,0 +1,4 @@
+module Adobe {
+  umbrella "../../../../../platforms/ios/Pods/Headers/Public"
+  export *
+}

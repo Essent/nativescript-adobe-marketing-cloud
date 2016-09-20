@@ -5,23 +5,19 @@ application.on(application.launchEvent, function (args: application.ApplicationE
     if (args.android) {
         AdobeAnalytics.getInstance().setContext(application.android.context);
     } else if (args.ios !== undefined) {
-        console.log("Launched iOS application with options: " + args.ios);
+        AdobeAnalytics.getInstance().collectLifecycleData(null);
     }
 });
 
 application.on(application.suspendEvent, function (args: application.ApplicationEventData) {
     if (args.android) {
         AdobeAnalytics.getInstance().pauseCollectingLifecycleData();
-    } else if (args.ios) {
-        console.log("UIApplication: " + args.ios);
     }
 });
 
 application.on(application.resumeEvent, function (args: application.ApplicationEventData) {
     if (args.android) {
         AdobeAnalytics.getInstance().collectLifecycleData(application.android.foregroundActivity);
-    } else if (args.ios) {
-        console.log("UIApplication: " + args.ios);
     }
 });
 
