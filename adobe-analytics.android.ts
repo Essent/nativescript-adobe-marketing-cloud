@@ -1,5 +1,4 @@
 import * as app from "application";
-import * as dialogs from "ui/dialogs";
 
 declare var android: any;
 declare var com: any;

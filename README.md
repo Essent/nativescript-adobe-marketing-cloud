@@ -2,47 +2,51 @@
 
 # Set up lifecycle tracking
 
-To track lifecycle in your application (essential) you need to set up listeners on application events, namely: 
-1. launchEvent
-2. suspendEvent
-3. resumeEvent
-
-TODO: update this code block with iOS
+Listen to lifecycle events:
 
 ```
 import * as application from "application";
-import {NativescriptAdobeAnalytics} from "nativescript-adobe-analytics";
+import {AdobeAnalytics} from "nativescript-adobe-analytics";
 
 application.on(application.launchEvent, function (args: application.ApplicationEventData) {
     if (args.android) {
-        NativescriptAdobeAnalytics.getInstance().setContext(application.android.context);
+        AdobeAnalytics.getInstance().setContext(application.android.context);
     } else if (args.ios !== undefined) {
-        console.log("Launched iOS application with options: " + args.ios);
+        AdobeAnalytics.getInstance().collectLifecycleData(null);
     }
 });
 
 application.on(application.suspendEvent, function (args: application.ApplicationEventData) {
     if (args.android) {
-        NativescriptAdobeAnalytics.getInstance().pauseCollectingLifecycleData();
-    } else if (args.ios) {
-        console.log("UIApplication: " + args.ios);
+        AdobeAnalytics.getInstance().pauseCollectingLifecycleData();
     }
 });
 
 application.on(application.resumeEvent, function (args: application.ApplicationEventData) {
     if (args.android) {
-        NativescriptAdobeAnalytics.getInstance().collectLifecycleData(application.android.foregroundActivity);
-    } else if (args.ios) {
-        console.log("UIApplication: " + args.ios);
+        AdobeAnalytics.getInstance().collectLifecycleData(application.android.foregroundActivity);
     }
 });
+
+if (application.android) {
+    application.android.on(application.AndroidApplication.activityPausedEvent, function (args: application.AndroidActivityEventData) {
+        AdobeAnalytics.getInstance().pauseCollectingLifecycleData();
+    });
+
+    application.android.on(application.AndroidApplication.activityResumedEvent, function (args: application.AndroidActivityEventData) {
+        AdobeAnalytics.getInstance().collectLifecycleData(application.android.foregroundActivity);
+    });
+}
 
 application.start({ moduleName: "main-page" });
 
 ```
 
-Your config.json file should be located in your application assets.
+ADBConfig.json file should be located in App_Resources.
+
+TODO: Android config file in App_Resources doesnt work, but manually adding it to src/main/assets does.
 
 # Track states and actions
 
-Tracking states and actions is done through method calls on actions and state changes. 
+States and actions can be traced through method calls that match their native counterparts signature.
+
