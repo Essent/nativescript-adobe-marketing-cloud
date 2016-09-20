@@ -1,7 +1,7 @@
 import * as app from "application";
-import * as dialogs from "ui/dialogs";
 
 declare var ADBMobile: any;
+declare var NSMutableDictionary: any;
 
 export class AdobeAnalytics {
 
@@ -26,13 +26,8 @@ constructor() {
   }
 
   public collectLifecycleData(activity:any): void {
-    console.log('Collect lifecycle called');
-    // call the adbMobile collectlifecycle here
     ADBMobile.setDebugLogging(true);
     ADBMobile.collectLifecycleData();
-    console.log(ADBMobile.trackingIdentifier());
-    console.log(ADBMobile);
-    // ADBMobile.collectLifecycleDataWithAdditionalData(contextData);
   }
 
   public pauseCollectingLifecycleData() {
@@ -40,23 +35,22 @@ constructor() {
   }
 
   public trackState(state: string, additional: {[key: string]:any}): void {
-    ADBMobile.trackState(state, null);    
+    ADBMobile.trackStateData(state, additional);    
   } 
 
   public trackAction(action: string, additional: {[key: string]:any}): void {
-    ADBMobile.trackAction(action, null);
+    ADBMobile.trackActionData(action, additional);
   }  
    
   public trackTimedActionStart(action: string, additional: {[key: string]:any}): void {
-    ADBMobile.trackTimedActionStart(action, null);
+    ADBMobile.trackTimedActionStartData(action, additional);
   } 
    
   public trackTimedActionUpdate(action: string, additional: {[key: string]:any}): void {
-    ADBMobile.trackTimedActionUpdate(action, null);
+    ADBMobile.trackTimedActionUpdateData(action, additional);
   } 
    
   public trackTimedActionEnd(action: string): void {
-    ADBMobile.trackTimedActionEnd(action);
+    ADBMobile.trackTimedActionEndLogic(action, null);
   }
-
 }
