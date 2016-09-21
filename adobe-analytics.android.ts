@@ -24,6 +24,7 @@ constructor() {
 
 
   public setContext(applicationContext:android.content.Context): void {
+    com.adobe.mobile.Config.overrideConfigStream(applicationContext.getResources().openRawResource(applicationContext.getResources().getIdentifier("adbmobileconfig","raw", applicationContext.getPackageName())));
     com.adobe.mobile.Config.setContext(applicationContext);
   }
 
