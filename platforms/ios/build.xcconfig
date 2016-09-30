@@ -1,1 +1,1 @@
-HEADER_SEARCH_PATHS = $(inherited) $(PROJECT_DIR)/../../node_modules/nativescript-adobe-analytics/platforms/ios/headers
+OTHER_LDFLAGS = $(inherited) -l"sqlite3" -framework "SystemConfiguration"
