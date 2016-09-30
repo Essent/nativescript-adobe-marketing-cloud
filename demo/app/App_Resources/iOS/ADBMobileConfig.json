@@ -1,5 +1,5 @@
 {
-  "lastModified": "2016-09-20T08:45:49.676Z",
+  "lastModified": "2016-09-30T20:16:48.800Z",
   "target": {
     "clientCode": "",
     "timeout": 5
@@ -16,7 +16,7 @@
   "analytics": {
     "rsids": "advessedmijnapptest",
     "server": "essent.sc.omtrdc.net",
-    "ssl": false,
+    "ssl": true,
     "offlineEnabled": true,
     "charset": "UTF-8",
     "lifecycleTimeout": 300,
