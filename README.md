@@ -1,6 +1,12 @@
-## Setting up the application for usage with this plugin.
+# Nativescript plugin for Adobe Marketing Cloud Solutions 
 
-# Set up lifecycle tracking
+Based on:
+- https://github.com/Adobe-Marketing-Cloud/mobile-services/releases/tag/v4.12.0-iOS
+- https://github.com/Adobe-Marketing-Cloud/mobile-services/releases/tag/v4.12.0-Android
+
+# Setting up the application for usage with this plugin.
+
+## Set up lifecycle tracking
 
 Listen to lifecycle events:
 
@@ -46,7 +52,7 @@ ADBConfig.json file should be located in App_Resources.
 
 TODO: Android config file in App_Resources doesnt work, but manually adding it to src/main/assets does.
 
-# Track states and actions
+## Track states and actions
 
 States and actions can be traced through method calls that match their native counterparts signature.
 
