@@ -1,7 +1,7 @@
 {
-  "name": "nativescript-adobe-analytics",
+  "name": "nativescript-adobe-marketing-cloud",
   "version": "1.0.0",
-  "description": "Your awesome NativeScript plugin.",
+  "description": "Nativescript Adobe marketing cloud integration plugin",
   "main": "adobe-analytics.js",
   "typings": "index.d.ts",
   "nativescript": {
@@ -15,32 +15,31 @@
     "demo.ios": "npm run preparedemo && cd demo && tns emulate ios",
     "demo.ios.device": "npm run preparedemo && cd demo && tns run ios",
     "demo.android": "npm run preparedemo && cd demo && tns run android",
-    "preparedemo": "npm run build && cd demo && tns plugin remove nativescript-adobe-analytics && tns plugin add .. && tns install",
+    "preparedemo": "npm run build && cd demo && tns plugin remove nativescript-adobe-marketing-cloud && tns plugin add .. && tns install",
     "setup": "npm i && cd demo && npm i && cd .. && npm run build && cd demo && tns plugin add .. && cd ..",
     "postclone": "npm i && node scripts/postclone.js"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/asd/nativescript-testplugin.git"
+    "url": "https://git.essent.nl/scm/feapp/nativescript-adobe-marketing-cloud.git"
   },
   "keywords": [
     "NativeScript",
     "JavaScript",
     "Android",
-    "iOS"
+    "iOS",
+		"Adobe",
+		"Adobe Mobile SDK"
   ],
   "author": {
-    "name": "Your Name",
-    "email": "youremail@yourdomain.com"
-  },
-  "bugs": {
-    "url": "https://github.com/asd/nativescript-testplugin/issues"
+    "name": "Henk Bakker",
+    "email": "henk.bakker@essent.nl"
   },
   "license": {
     "type": "MIT",
-    "url": "https://github.com/asd/nativescript-testplugin/blob/master/LICENSE"
+    "url": "https://git.essent.nl/projects/FEAPP/repos/nativescript-adobe-marketing-cloud/browse/LICENSE"
   },
-  "homepage": "https://github.com/asd/nativescript-testplugin",
+  "homepage": "https://git.essent.nl/projects/FEAPP/repos/nativescript-adobe-marketing-cloud",
   "readmeFilename": "README.md",
   "devDependencies": {
     "tns-core-modules": "2.2.1",

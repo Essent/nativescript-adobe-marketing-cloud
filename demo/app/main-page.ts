@@ -2,7 +2,7 @@ import { EventData } from 'data/observable';
 import { Page } from 'ui/page';
 import * as frameModule from "ui/frame";
 import { HelloWorldModel } from './main-view-model';
-import { AdobeAnalytics } from "nativescript-adobe-analytics";
+import { AdobeAnalytics } from "nativescript-adobe-marketing-cloud";
 
 // Event handler for Page "navigatingTo" event attached in main-page.xml
 export function navigatingTo(args: EventData) {

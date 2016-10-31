@@ -1,4 +1,10 @@
 # Nativescript plugin for Adobe Marketing Cloud Solutions
+Works currently only with nativescript 2.2.x.
+Downgrade to nativescript 2.2.x
+```
+npm uninstall -g nativescript
+npm install -g nativescript@2.2
+```
 
 Based on:
 - https://github.com/Adobe-Marketing-Cloud/mobile-services/releases/tag/v4.12.0-iOS
@@ -12,7 +18,7 @@ Listen to lifecycle events:
 
 ```
 import * as application from "application";
-import {AdobeAnalytics} from "nativescript-adobe-analytics";
+import {AdobeAnalytics} from "nativescript-adobe-marketing-cloud";
 
 application.on(application.launchEvent, function (args: application.ApplicationEventData) {
     if (args.android) {
@@ -48,9 +54,15 @@ application.start({ moduleName: "main-page" });
 
 ```
 
-ADBConfig.json file should be located in App_Resources.
+## Setup ADBMobileConfig.json
+Get the config file from the Adobe dashboard.
 
-TODO: Android config file in App_Resources doesnt work, but manually adding it to src/main/assets does.
+### iOS
+place `ADBMobileConfig.json` file in `app\App_Resources\iOS`
+
+## Android
+place `adbmobileconfig.json` file in `app\App_Resources\Android\raw`
+
 
 ## Track states and actions
 
@@ -61,11 +73,10 @@ States and actions can be traced through method calls that match their native co
 ## Getting started
 
 1. `git clone https://git.essent.nl/scm/feapp/nativescript-adobe-marketing-cloud.git`
-2. `npm install -g typescript`
-3. `cd myplugin`
-4. `npm run postclone`
+2. `npm install -g typescript@1.8`
+3. `cd nativescript-adobe-marketing-cloud`
 5. `npm run setup`
-6. Get to work.
+6. `npm run demo.android`
 
 This seed expands on several things [presented here](http://developer.telerik.com/featured/creating-nativescript-plugins-in-typescript/).
 
@@ -105,7 +116,7 @@ Those `demo` tasks are just general helpers. You may want to have more granular 
 cd demo
 
 // when developing, to ensure the latest code is built into the demo, it's a guarantee to remove the plugin and add it back
-tns plugin remove nativescript-yourplugin
+tns plugin remove nativescript-adobe-marketing-cloud
 tns plugin add ..
 
 // manual platform adds

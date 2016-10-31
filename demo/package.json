@@ -13,7 +13,7 @@
     }
   },
   "dependencies": {
-    "nativescript-adobe-analytics": "file:..",
+    "nativescript-adobe-marketing-cloud": "file:..",
     "tns-core-modules": "2.2.0"
   },
   "devDependencies": {

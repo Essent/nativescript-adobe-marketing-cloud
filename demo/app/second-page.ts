@@ -2,7 +2,7 @@ import * as observable from "data/observable";
 import * as pages from "ui/page";
 import {SecondPageModel} from "./second-view-model";
 import * as frameModule from "ui/frame";
-import {AdobeAnalytics} from "nativescript-adobe-analytics";
+import {AdobeAnalytics} from "nativescript-adobe-marketing-cloud";
 
 // Event handler for Page "loaded" event attached in second-page.xml
 export function pageLoaded(args: observable.EventData) {
