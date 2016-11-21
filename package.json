@@ -21,7 +21,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://git.essent.nl/scm/feapp/nativescript-adobe-marketing-cloud.git"
+    "url": "https://github.com/Essent/nativescript-adobe-marketing-cloud.git"
   },
   "keywords": [
     "NativeScript",
@@ -32,14 +32,14 @@
 		"Adobe Mobile SDK"
   ],
   "author": {
-    "name": "Henk Bakker",
-    "email": "henk.bakker@essent.nl"
+    "name": "Essent",
+    "email": "jasper.boeijenga@essent.nl"
   },
   "license": {
     "type": "MIT",
-    "url": "https://git.essent.nl/projects/FEAPP/repos/nativescript-adobe-marketing-cloud/browse/LICENSE"
+    "url": "https://github.com/Essent/nativescript-adobe-marketing-cloud/blob/develop/LICENSE"
   },
-  "homepage": "https://git.essent.nl/projects/FEAPP/repos/nativescript-adobe-marketing-cloud",
+  "homepage": "https://github.com/Essent/nativescript-adobe-marketing-cloud",
   "readmeFilename": "README.md",
   "devDependencies": {
     "tns-core-modules": "2.2.1",
