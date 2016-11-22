@@ -11,8 +11,8 @@
     }
   },
   "scripts": {
-    "prepublish": "npm run build",
     "build": "tsc",
+    "prepublish": "npm run build",
     "demo.ios": "npm run preparedemo && cd demo && tns emulate ios",
     "demo.ios.device": "npm run preparedemo && cd demo && tns run ios",
     "demo.android": "npm run preparedemo && cd demo && tns run android",
