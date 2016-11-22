@@ -1,14 +1,13 @@
 # Nativescript plugin for Adobe Marketing Cloud Solutions
-Works currently only with nativescript 2.2.x.
-Downgrade to nativescript 2.2.x
+
 ```
 npm uninstall -g nativescript
-npm install -g nativescript@2.2
+npm install -g nativescript
 ```
 
 Based on:
-- https://github.com/Adobe-Marketing-Cloud/mobile-services/releases/tag/v4.12.0-iOS
-- https://github.com/Adobe-Marketing-Cloud/mobile-services/releases/tag/v4.12.0-Android
+- https://github.com/Adobe-Marketing-Cloud/mobile-services/releases/tag/v4.13.2-iOS
+- https://github.com/Adobe-Marketing-Cloud/mobile-services/releases/tag/v4.13.2-Android
 
 # Setting up the application for usage with this plugin.
 
@@ -73,7 +72,7 @@ States and actions can be traced through method calls that match their native co
 ## Getting started
 
 1. `git clone https://git.essent.nl/scm/feapp/nativescript-adobe-marketing-cloud.git`
-2. `npm install -g typescript@1.8`
+2. `npm install -g typescript`
 3. `cd nativescript-adobe-marketing-cloud`
 5. `npm run setup`
 6. `npm run demo.android`
