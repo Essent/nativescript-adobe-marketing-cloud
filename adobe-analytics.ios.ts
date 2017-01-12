@@ -22,8 +22,8 @@ export class AdobeAnalytics {
         // not applicable for iOS
     }
 
-    public collectLifecycleData(activity: any): void {
-        ADBMobile.setDebugLogging(true);
+    public collectLifecycleData(activity: any, debugLogging: boolean = true): void {
+        ADBMobile.setDebugLogging(debugLogging);
         ADBMobile.collectLifecycleData();
     }
 
@@ -31,19 +31,19 @@ export class AdobeAnalytics {
         // not applicable for iOS
     }
 
-    public trackState(state: string, additional: {[key: string]: any}): void {
+    public trackState(state: string, additional: { [key: string]: any }): void {
         ADBMobile.trackStateData(state, additional);
     }
 
-    public trackAction(action: string, additional: {[key: string]: any}): void {
+    public trackAction(action: string, additional: { [key: string]: any }): void {
         ADBMobile.trackActionData(action, additional);
     }
 
-    public trackTimedActionStart(action: string, additional: {[key: string]: any}): void {
+    public trackTimedActionStart(action: string, additional: { [key: string]: any }): void {
         ADBMobile.trackTimedActionStartData(action, additional);
     }
 
-    public trackTimedActionUpdate(action: string, additional: {[key: string]: any}): void {
+    public trackTimedActionUpdate(action: string, additional: { [key: string]: any }): void {
         ADBMobile.trackTimedActionUpdateData(action, additional);
     }
 
