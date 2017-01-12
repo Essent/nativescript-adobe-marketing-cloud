@@ -3,7 +3,7 @@ export declare class AdobeAnalytics {
     constructor();
     static getInstance(): AdobeAnalytics;
     setContext(applicationContext: android.content.Context): void;
-    collectLifecycleData(activity: android.app.Activity): void;
+    collectLifecycleData(activity: android.app.Activity, debugLogging?: boolean): void;
     pauseCollectingLifecycleData(): void;
     trackState(state: string, additional: {
         [key: string]: any;
