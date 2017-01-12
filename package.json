@@ -1,6 +1,6 @@
 {
   "name": "nativescript-adobe-marketing-cloud",
-  "version": "1.1.2",
+  "version": "1.2.0",
   "description": "Nativescript Adobe marketing cloud integration plugin",
   "main": "adobe-analytics.js",
   "typings": "index.d.ts",
@@ -29,8 +29,8 @@
     "JavaScript",
     "Android",
     "iOS",
-		"Adobe",
-		"Adobe Mobile SDK"
+    "Adobe",
+    "Adobe Mobile SDK"
   ],
   "author": {
     "name": "Essent",
