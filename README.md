@@ -1,8 +1,8 @@
 # Nativescript plugin for Adobe Marketing Cloud Solutions
+[![npm version](https://badge.fury.io/js/nativescript-adobe-marketing-cloud.svg)](https://badge.fury.io/js/nativescript-adobe-marketing-cloud)
 
 ```
-npm uninstall -g nativescript
-npm install -g nativescript
+npm install nativescript-adobe-marketing-cloud --save
 ```
 
 Based on:
