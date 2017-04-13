@@ -1,7 +1,5 @@
 import { AdobeAnalyticsCommon } from './adobe-analytics.common';
 
-declare var ADBMobile: any;
-
 export class AdobeAnalytics extends AdobeAnalyticsCommon {
     protected static _instance: AdobeAnalyticsCommon = new AdobeAnalytics();
 
@@ -19,19 +17,19 @@ export class AdobeAnalytics extends AdobeAnalyticsCommon {
     }
 
     public trackState(state: string, additional: { [key: string]: any }): void {
-        ADBMobile.trackStateData(state, additional);
+        ADBMobile.trackStateData(state, <NSDictionary<any, any>>additional);
     }
 
     public trackAction(action: string, additional: { [key: string]: any }): void {
-        ADBMobile.trackActionData(action, additional);
+        ADBMobile.trackActionData(action, <NSDictionary<any, any>>additional);
     }
 
     public trackTimedActionStart(action: string, additional: { [key: string]: any }): void {
-        ADBMobile.trackTimedActionStartData(action, additional);
+        ADBMobile.trackTimedActionStartData(action, <NSDictionary<any, any>>additional);
     }
 
     public trackTimedActionUpdate(action: string, additional: { [key: string]: any }): void {
-        ADBMobile.trackTimedActionUpdateData(action, additional);
+        ADBMobile.trackTimedActionUpdateData(action, <NSDictionary<any, any>>additional);
     }
 
     public trackTimedActionEnd(action: string): void {
