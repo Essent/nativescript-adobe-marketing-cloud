@@ -1,7 +1,6 @@
-export declare class AdobeAnalytics {
-    private static _instance;
-    constructor();
-    static getInstance(): AdobeAnalytics;
+import { AdobeAnalyticsCommon } from './adobe-analytics.common';
+export declare class AdobeAnalytics extends AdobeAnalyticsCommon {
+    protected static _instance: AdobeAnalyticsCommon;
     setContext(applicationContext: android.content.Context): void;
     collectLifecycleData(activity: android.app.Activity, debugLogging?: boolean): void;
     pauseCollectingLifecycleData(): void;

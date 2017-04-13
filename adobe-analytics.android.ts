@@ -1,21 +1,9 @@
+import { AdobeAnalyticsCommon } from './adobe-analytics.common';
+
 declare var com: any;
 
-export class AdobeAnalytics {
-
-    private static _instance: AdobeAnalytics = new AdobeAnalytics();
-
-    constructor() {
-
-        if (AdobeAnalytics._instance) {
-            throw new Error("Error: Instantiation failed: Use AdobeAnalytics.getInstance() instead of new.");
-        }
-        AdobeAnalytics._instance = this;
-
-    }
-
-    public static getInstance(): AdobeAnalytics {
-        return AdobeAnalytics._instance;
-    }
+export class AdobeAnalytics extends AdobeAnalyticsCommon {
+    protected static _instance: AdobeAnalyticsCommon = new AdobeAnalytics();
 
     public setContext(applicationContext: android.content.Context): void {
         com.adobe.mobile.Config.overrideConfigStream(applicationContext.getResources().openRawResource(applicationContext.getResources().getIdentifier("adbmobileconfig", "raw", applicationContext.getPackageName())));
