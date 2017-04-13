@@ -1,47 +1,54 @@
 {
-  "name": "nativescript-adobe-marketing-cloud",
-  "version": "1.2.0",
-  "description": "Nativescript Adobe marketing cloud integration plugin",
-  "main": "adobe-analytics",
-  "typings": "index.d.ts",
-  "nativescript": {
-    "platforms": {
-      "android": "2.5.0",
-      "ios": "2.5.0"
-    }
-  },
-  "scripts": {
-    "build": "tsc",
-    "prepublish": "npm run build",
-    "demo.ios": "npm run preparedemo && cd demo && tns emulate ios",
-    "demo.ios.device": "npm run preparedemo && cd demo && tns run ios",
-    "demo.android": "npm run preparedemo && cd demo && tns run android",
-    "preparedemo": "npm run build && cd demo && tns plugin remove nativescript-adobe-marketing-cloud && tns plugin add .. && tns install",
-    "setup": "npm i && cd demo && npm i && cd .. && npm run build && cd demo && tns plugin add .. && cd ..",
-    "postclone": "npm i && node scripts/postclone.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/Essent/nativescript-adobe-marketing-cloud.git"
-  },
-  "keywords": [
-    "NativeScript",
-    "JavaScript",
-    "Android",
-    "iOS",
-    "Adobe",
-    "Adobe Mobile SDK"
-  ],
-  "author": {
-    "name": "Essent",
-    "email": "jasper.boeijenga@essent.nl"
-  },
-  "license": "MIT",
-  "homepage": "https://github.com/Essent/nativescript-adobe-marketing-cloud",
-  "readmeFilename": "README.md",
-  "devDependencies": {
-    "tns-core-modules": "~2.5.2",
-    "tns-platform-declarations": "~2.5.2",
-    "typescript": "~2.1.0"
-  }
+	"name": "nativescript-adobe-marketing-cloud",
+	"version": "1.2.0",
+	"description": "Nativescript Adobe marketing cloud integration plugin",
+	"main": "adobe-analytics",
+	"typings": "index.d.ts",
+	"nativescript": {
+		"platforms": {
+			"android": "2.5.0",
+			"ios": "2.5.0"
+		}
+	},
+	"scripts": {
+		"build": "tsc",
+		"prepublish": "npm run build",
+		"demo.ios": "npm run preparedemo && cd demo && tns run ios --emulator",
+		"demo.ios.device": "npm run preparedemo && cd demo && tns run ios",
+		"demo.android": "npm run preparedemo && cd demo && tns run android --emulator",
+		"test.ios": "cd demo && tns test ios --emulator",
+		"test.ios.device": "cd demo && tns test ios",
+		"test.android": "cd demo && tns test android",
+		"preparedemo": "npm run build && cd demo && tns plugin remove nativescript-adobe-marketing-cloud && tns plugin add .. && tns install",
+		"setup": "npm i && cd demo && npm i && cd .. && npm run build && cd demo && tns plugin add .. && cd .."
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/Essent/nativescript-adobe-marketing-cloud.git"
+	},
+	"keywords": [
+		"NativeScript",
+		"JavaScript",
+		"Android",
+		"iOS",
+		"Adobe",
+		"Adobe Mobile SDK"
+	],
+	"author": {
+		"name": "Essent"
+	},
+	"contributors": [
+		"Jasper Boeijenga <jasper.boeijenga@essent.nl>",
+		"Henk Bakker <spike1292@gmail.com>",
+		"Oscar Lodriguez <o.lodriguez@gmail.com>",
+		"Robert Jan Van der Hulst <rvdhulst@quintor.nl>"
+	],
+	"license": "MIT",
+	"homepage": "https://github.com/Essent/nativescript-adobe-marketing-cloud",
+	"readmeFilename": "README.md",
+	"devDependencies": {
+		"tns-core-modules": "~2.5.2",
+		"tns-platform-declarations": "~2.5.2",
+		"typescript": "~2.1.0"
+	}
 }

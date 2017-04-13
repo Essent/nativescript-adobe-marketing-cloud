@@ -1,4 +1,4 @@
-<Page xmlns="http://schemas.nativescript.org/tns.xsd" loaded="pageLoaded">
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" loaded="pageLoaded" class="page">
   <StackLayout orientation="vertical">
     <Label text="{{ message }}" class="message" textWrap="true"/>
     <Button text="Click me for action" tap="action"/>

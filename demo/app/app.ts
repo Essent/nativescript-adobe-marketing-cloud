@@ -1,7 +1,7 @@
 ﻿import * as application from "application";
-import {AdobeAnalytics} from "nativescript-adobe-marketing-cloud";
+import { AdobeAnalytics } from "nativescript-adobe-marketing-cloud";
 
-application.on(application.launchEvent, function (args: application.ApplicationEventData) {
+application.on(application.launchEvent, (args: application.ApplicationEventData) => {
     if (args.android) {
         AdobeAnalytics.getInstance().setContext(application.android.context);
     } else if (args.ios !== undefined) {
@@ -9,13 +9,13 @@ application.on(application.launchEvent, function (args: application.ApplicationE
     }
 });
 
-application.on(application.suspendEvent, function (args: application.ApplicationEventData) {
+application.on(application.suspendEvent, (args: application.ApplicationEventData) => {
     if (args.android) {
         AdobeAnalytics.getInstance().pauseCollectingLifecycleData();
     }
 });
 
-application.on(application.resumeEvent, function (args: application.ApplicationEventData) {
+application.on(application.resumeEvent, (args: application.ApplicationEventData) => {
     if (args.android) {
         AdobeAnalytics.getInstance().collectLifecycleData(application.android.foregroundActivity);
     }
@@ -23,11 +23,11 @@ application.on(application.resumeEvent, function (args: application.ApplicationE
 
 
 if (application.android) {
-    application.android.on(application.AndroidApplication.activityPausedEvent, function (args: application.AndroidActivityEventData) {
+    application.android.on(application.AndroidApplication.activityPausedEvent, (args: application.AndroidActivityEventData) => {
         AdobeAnalytics.getInstance().pauseCollectingLifecycleData();
     });
 
-    application.android.on(application.AndroidApplication.activityResumedEvent, function (args: application.AndroidActivityEventData) {
+    application.android.on(application.AndroidApplication.activityResumedEvent, (args: application.AndroidActivityEventData) => {
         AdobeAnalytics.getInstance().collectLifecycleData(application.android.foregroundActivity);
     });
 }
