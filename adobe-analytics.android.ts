@@ -1,6 +1,4 @@
-declare var android: any;
 declare var com: any;
-declare var java: any;
 
 export class AdobeAnalytics {
 
@@ -53,13 +51,13 @@ export class AdobeAnalytics {
         com.adobe.mobile.Analytics.trackTimedActionEnd(action, null);
     }
 
-    private convertToHashMap(dictionary: { [key: string]: any }): java.util.Map<String, Object> {
-        var map = new java.util.HashMap();
-        for (var key in dictionary) {
-            var value = dictionary[key];
-            map.put(key, value);
-        }
-        return map;
+    private convertToHashMap(dictionary: { [key: string]: any }): java.util.Map<string, Object> {
+        return Object.keys(dictionary)
+            .reduce((result, key) => {
+                const value = dictionary[key];
+                result.put(key, value);
+                return result;
+            }, new java.util.HashMap<string, Object>());
     }
 
 }

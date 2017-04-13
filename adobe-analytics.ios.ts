@@ -1,5 +1,4 @@
 declare var ADBMobile: any;
-declare var NSMutableDictionary: any;
 
 export class AdobeAnalytics {
 

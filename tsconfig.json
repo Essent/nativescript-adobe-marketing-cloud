@@ -2,21 +2,34 @@
     "compilerOptions": {
         "target": "es5",
         "module": "commonjs",
-        "removeComments": true,
-        "experimentalDecorators": true,
-        "noEmitHelpers": true,
         "declaration": true,
+        "removeComments": true,
+        "noLib": false,
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
         "lib": [
             "es2016"
+        ],
+        "sourceMap": true,
+        "pretty": true,
+        "allowUnreachableCode": false,
+        "allowUnusedLabels": false,
+        "noEmitHelpers": true,
+        "noEmitOnError": false,
+        "noImplicitAny": false,
+        "noImplicitReturns": true,
+        "noImplicitUseStrict": false,
+        "noFallthroughCasesInSwitch": true,
+        "typeRoots": [
+            "./node_modules/@types",
+            "./node_modules"
+        ],
+        "types": [
         ]
     },
-    "files": [
-      "node_modules/tns-core-modules/tns-core-modules.es2016.d.ts",
-      "node_modules/tns-platform-declarations/ios/ios.d.ts",
-      "node_modules/tns-platform-declarations/android.d.ts",
-      "adobe-analytics.common.ts",
-      "adobe-analytics.android.ts", 
-      "adobe-analytics.ios.ts"
+    "exclude": [
+        "demo",
+        "node_modules"
     ],
     "compileOnSave": false
 }
