@@ -17,5 +17,5 @@ export declare class AdobeAnalytics extends AdobeAnalyticsCommon {
         [key: string]: any;
     }): void;
     trackTimedActionEnd(action: string): void;
-    private convertToHashMap(dictionary);
+    private convertToHashMap(dictionary?);
 }

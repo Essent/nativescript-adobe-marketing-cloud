@@ -9,4 +9,18 @@ describe("getInstance", function () {
 	it("returns a instance", function () {
 		expect(AdobeAnalytics.getInstance()).toEqual(jasmine.any(AdobeAnalytics));
 	});
+
+	it("track without additional", function () {
+		expect(() => {
+			AdobeAnalytics.getInstance().trackAction("help");
+		}).not.toThrow();
+	});
+
+	it("track with additional", function () {
+		expect(() => {
+			AdobeAnalytics.getInstance().trackAction("help", {
+				"ActionData": "ThisIsActionData"
+			});
+		}).not.toThrow();
+	});
 });

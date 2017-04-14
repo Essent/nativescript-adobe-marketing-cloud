@@ -39,7 +39,7 @@ export class AdobeAnalytics extends AdobeAnalyticsCommon {
         com.adobe.mobile.Analytics.trackTimedActionEnd(action, null);
     }
 
-    private convertToHashMap(dictionary: { [key: string]: any }): java.util.Map<string, Object> {
+    private convertToHashMap(dictionary: { [key: string]: any } = {}): java.util.Map<string, Object> {
         return Object.keys(dictionary)
             .reduce((result, key) => {
                 const value = dictionary[key];
