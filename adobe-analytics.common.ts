@@ -20,4 +20,7 @@ export abstract class AdobeAnalyticsCommon {
     public abstract trackTimedActionStart(action: string, additional: { [key: string]: any }): void;
     public abstract trackTimedActionUpdate(action: string, additional: { [key: string]: any }): void;
     public abstract trackTimedActionEnd(action: string): void;
+    public abstract trackLocation(location: android.location.Location | CLLocation, additional: { [key: string]: any; }): void;
+    public abstract optin(): void;
+    public abstract optout(): void;
 }

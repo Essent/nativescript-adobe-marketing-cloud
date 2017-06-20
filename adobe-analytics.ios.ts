@@ -35,4 +35,16 @@ export class AdobeAnalytics extends AdobeAnalyticsCommon {
     public trackTimedActionEnd(action: string): void {
         ADBMobile.trackTimedActionEndLogic(action, null);
     }
+
+    public trackLocation(location: CLLocation, additional: { [key: string]: any; }): void {
+        ADBMobile.trackLocationData(location, <NSDictionary<any, any>>additional);
+    }
+
+    public optin(): void {
+        ADBMobile.setPrivacyStatus(ADBMobilePrivacyStatus.OptIn);
+    }
+
+    public optout(): void {
+        ADBMobile.setPrivacyStatus(ADBMobilePrivacyStatus.OptOut);
+    }
 }

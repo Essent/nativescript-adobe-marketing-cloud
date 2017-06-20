@@ -19,4 +19,7 @@ export declare class AdobeAnalytics extends AdobeAnalyticsCommon {
         [key: string]: any;
     }): void;
     trackTimedActionEnd(action: string): void;
+    trackLocation(location: android.location.Location | CLLocation, additional: { [key: string]: any; }): void;
+    optin(): void;
+    optout(): void;
 }
