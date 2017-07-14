@@ -50,5 +50,8 @@
     "tns-core-modules": "3.1.0",
     "tns-platform-declarations": "3.1.0",
     "typescript": "2.3.4"
+  },
+  "peerDependencies": {
+    "tns-core-modules": "^3.1.0"
   }
 }
