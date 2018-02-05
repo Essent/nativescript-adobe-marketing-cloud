@@ -48,4 +48,8 @@ export class AdobeAnalytics extends AdobeAnalyticsCommon {
             }, new java.util.HashMap<string, Object>());
     }
 
+    public visitorAppendToURL(url: string): string {
+        return com.adobe.mobile.Visitor.appendToURL(url);
+    }
+
 }
