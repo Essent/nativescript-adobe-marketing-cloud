@@ -20,4 +20,5 @@ export abstract class AdobeAnalyticsCommon {
     public abstract trackTimedActionStart(action: string, additional: { [key: string]: any }): void;
     public abstract trackTimedActionUpdate(action: string, additional: { [key: string]: any }): void;
     public abstract trackTimedActionEnd(action: string): void;
+    public abstract visitorAppendToURL(url: string): string;
 }
