@@ -18,4 +18,5 @@ export declare abstract class AdobeAnalyticsCommon {
         [key: string]: any;
     }): void;
     abstract trackTimedActionEnd(action: string): void;
+    abstract visitorAppendToURL(url: string): string;
 }

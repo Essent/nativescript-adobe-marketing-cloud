@@ -37,4 +37,11 @@ export class AdobeAnalytics extends AdobeAnalyticsCommon {
     public trackTimedActionEnd(action: string): void {
         ADBMobile.trackTimedActionEndLogic(action, null);
     }
+
+    public visitorAppendToURL(url: string): string {
+        const nsurl = NSURL.URLWithString(url);
+        const urlWithVisitorData = ADBMobile.visitorAppendToURL(nsurl);
+
+        return urlWithVisitorData.absoluteString;
+    }
 }

@@ -18,4 +18,5 @@ export declare class AdobeAnalytics extends AdobeAnalyticsCommon {
     }): void;
     trackTimedActionEnd(action: string): void;
     private convertToHashMap(dictionary?);
+    visitorAppendToURL(url: string): string;
 }
