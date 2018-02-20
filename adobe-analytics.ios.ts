@@ -44,4 +44,16 @@ export class AdobeAnalytics extends AdobeAnalyticsCommon {
 
         return urlWithVisitorData.absoluteString;
     }
+
+    public trackLocation(location: CLLocation, additional: { [key: string]: any; }): void {
+        ADBMobile.trackLocationData(location, <NSDictionary<any, any>>additional);
+    }
+
+    public optin(): void {
+        ADBMobile.setPrivacyStatus(ADBMobilePrivacyStatus.OptIn);
+    }
+
+    public optout(): void {
+        ADBMobile.setPrivacyStatus(ADBMobilePrivacyStatus.OptOut);
+    }
 }

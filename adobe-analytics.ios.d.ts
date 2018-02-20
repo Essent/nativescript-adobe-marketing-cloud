@@ -18,4 +18,9 @@ export declare class AdobeAnalytics extends AdobeAnalyticsCommon {
     }): void;
     trackTimedActionEnd(action: string): void;
     visitorAppendToURL(url: string): string;
+    trackLocation(location: CLLocation, additional: {
+        [key: string]: any;
+    }): void;
+    optin(): void;
+    optout(): void;
 }
