@@ -20,8 +20,8 @@ export declare class AdobeAnalytics extends AdobeAnalyticsCommon {
     trackLocation(location: android.location.Location, additional: {
         [key: string]: any;
     }): void;
-    optin(): void;
-    optout(): void;
+    optIn(): void;
+    optOut(): void;
     private convertToHashMap(dictionary?);
     visitorAppendToURL(url: string): string;
 }

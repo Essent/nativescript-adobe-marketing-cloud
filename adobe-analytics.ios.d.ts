@@ -21,6 +21,6 @@ export declare class AdobeAnalytics extends AdobeAnalyticsCommon {
     trackLocation(location: CLLocation, additional: {
         [key: string]: any;
     }): void;
-    optin(): void;
-    optout(): void;
+    optIn(): void;
+    optOut(): void;
 }

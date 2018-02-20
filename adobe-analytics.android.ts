@@ -43,11 +43,11 @@ export class AdobeAnalytics extends AdobeAnalyticsCommon {
         com.adobe.mobile.Analytics.trackLocation(location, this.convertToHashMap(additional));
     }
 
-    public optin(): void {
+    public optIn(): void {
         com.adobe.mobile.Config.setPrivacyStatus(com.adobe.mobile.MobilePrivacyStatus.MOBILE_PRIVACY_STATUS_OPT_IN);
     }
 
-    public optout(): void {
+    public optOut(): void {
         com.adobe.mobile.Config.setPrivacyStatus(com.adobe.mobile.MobilePrivacyStatus.MOBILE_PRIVACY_STATUS_OPT_OUT);
     }
 

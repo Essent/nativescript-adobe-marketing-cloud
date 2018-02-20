@@ -19,9 +19,9 @@ export declare abstract class AdobeAnalyticsCommon {
     }): void;
     abstract trackTimedActionEnd(action: string): void;
     abstract visitorAppendToURL(url: string): string;
-    abstract trackLocation(location: android.location.Location | CLLocation, additional: {
+    abstract trackLocation(location: any, additional: {
         [key: string]: any;
     }): void;
-    abstract optin(): void;
-    abstract optout(): void;
+    abstract optIn(): void;
+    abstract optOut(): void;
 }
