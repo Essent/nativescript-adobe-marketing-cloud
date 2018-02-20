@@ -49,11 +49,11 @@ export class AdobeAnalytics extends AdobeAnalyticsCommon {
         ADBMobile.trackLocationData(location, <NSDictionary<any, any>>additional);
     }
 
-    public optin(): void {
+    public optIn(): void {
         ADBMobile.setPrivacyStatus(ADBMobilePrivacyStatus.OptIn);
     }
 
-    public optout(): void {
+    public optOut(): void {
         ADBMobile.setPrivacyStatus(ADBMobilePrivacyStatus.OptOut);
     }
 }
