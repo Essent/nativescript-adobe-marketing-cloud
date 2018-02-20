@@ -1,6 +1,6 @@
 // use take the ios or android .d.ts files and copy/paste them here
-
 import { AdobeAnalyticsCommon } from './adobe-analytics.common';
+
 export declare class AdobeAnalytics extends AdobeAnalyticsCommon {
     protected static _instance: AdobeAnalyticsCommon;
     setContext(applicationContext: any): void;
@@ -19,4 +19,8 @@ export declare class AdobeAnalytics extends AdobeAnalyticsCommon {
         [key: string]: any;
     }): void;
     trackTimedActionEnd(action: string): void;
+    visitorAppendToURL(url: string): string;
+    trackLocation(location: any, additional: { [key: string]: any; }): void;
+    optIn(): void;
+    optOut(): void;
 }

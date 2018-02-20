@@ -1,5 +1,7 @@
 import { AdobeAnalyticsCommon } from './adobe-analytics.common';
 
+declare type ADBMobile = any;
+
 export class AdobeAnalytics extends AdobeAnalyticsCommon {
     protected static _instance: AdobeAnalyticsCommon = new AdobeAnalytics();
 
@@ -34,5 +36,24 @@ export class AdobeAnalytics extends AdobeAnalyticsCommon {
 
     public trackTimedActionEnd(action: string): void {
         ADBMobile.trackTimedActionEndLogic(action, null);
+    }
+
+    public visitorAppendToURL(url: string): string {
+        const nsurl = NSURL.URLWithString(url);
+        const urlWithVisitorData = ADBMobile.visitorAppendToURL(nsurl);
+
+        return urlWithVisitorData.absoluteString;
+    }
+
+    public trackLocation(location: CLLocation, additional: { [key: string]: any; }): void {
+        ADBMobile.trackLocationData(location, <NSDictionary<any, any>>additional);
+    }
+
+    public optIn(): void {
+        ADBMobile.setPrivacyStatus(ADBMobilePrivacyStatus.OptIn);
+    }
+
+    public optOut(): void {
+        ADBMobile.setPrivacyStatus(ADBMobilePrivacyStatus.OptOut);
     }
 }
