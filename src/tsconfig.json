@@ -7,10 +7,7 @@
         "noLib": false,
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true,
-        "lib": [
-            "es6",
-            "dom"
-        ],
+        "lib": ["es6", "dom"],
         "sourceMap": true,
         "pretty": true,
         "allowUnreachableCode": false,
@@ -23,8 +20,7 @@
         "noFallthroughCasesInSwitch": true
     },
     "exclude": [
-        "node_modules",
-        "demo"
+        "node_modules"
     ],
     "compileOnSave": false
 }

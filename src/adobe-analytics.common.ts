@@ -12,8 +12,8 @@ export abstract class AdobeAnalyticsCommon {
         return AdobeAnalyticsCommon._instance;
     }
 
-    public abstract setContext(applicationContext: any ): void; //applicationContext type is android.content.Context
-    public abstract collectLifecycleData(activity: any, debugLogging?: boolean): void; //activity type is android.app.Activity
+    public abstract setContext(applicationContext: any ): void; // applicationContext type is android.content.Context
+    public abstract collectLifecycleData(activity: any, debugLogging?: boolean): void; // activity type is android.app.Activity
     public abstract pauseCollectingLifecycleData();
     public abstract trackState(state: string, additional: { [key: string]: any }): void;
     public abstract trackAction(action: string, additional: { [key: string]: any }): void;
