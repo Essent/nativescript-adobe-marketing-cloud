@@ -67,6 +67,29 @@ place `adbmobileconfig.json` file in `app\App_Resources\Android\raw`
 
 States and actions can be traced through method calls that match their native counterparts signature.
 
+## Privacy options
+See: https://marketing.adobe.com/resources/help/en_US/mobile/ios/privacy.html
+
+Select a privacy option:
+
+Send Data Until Opt-Out
+```
+AdobeAnalytics.getInstance().optIn();
+```
+Hold Data Until Opt-In
+```
+AdobeAnalytics.getInstance().optOut();
+```
+
+## Visitor Tracking Between an App and Mobile Web
+See: https://marketing.adobe.com/resources/help/en_US/mobile/ios/hybrid_app.html
+You can call:
+```
+AdobeAnalytics.getInstance().visitorAppendToURL(url);
+```
+
+This will return the url provided extended with the visitorId.
+
 #### <a name='Developmentsetup'></a>Development setup
 For easier development and debugging purposes continue with the following steps:
 
