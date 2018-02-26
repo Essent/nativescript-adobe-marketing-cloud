@@ -1,7 +1,5 @@
 import { AdobeAnalyticsCommon } from './adobe-analytics.common';
 
-declare type ADBMobile = any;
-
 export class AdobeAnalytics extends AdobeAnalyticsCommon {
     protected static _instance: AdobeAnalyticsCommon = new AdobeAnalytics();
 

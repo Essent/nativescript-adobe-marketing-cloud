@@ -1,4 +1,4 @@
-﻿import * as application from "application";
+﻿import * as application from "tns-core-modules/application";
 import { AdobeAnalytics } from "nativescript-adobe-marketing-cloud";
 
 application.on(application.launchEvent, (args: application.ApplicationEventData) => {
