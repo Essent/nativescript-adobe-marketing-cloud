@@ -1,8 +1,10 @@
 import { EventData } from 'tns-core-modules/data/observable';
+import { Label } from 'tns-core-modules/ui/label';
 import { Page } from 'tns-core-modules/ui/page';
 import * as frameModule from "tns-core-modules/ui/frame";
 import { HelloWorldModel } from './main-view-model';
 import { AdobeAnalytics } from "nativescript-adobe-marketing-cloud";
+import * as view from "tns-core-modules/ui/core/view";
 
 // Event handler for Page 'loaded' event attached in main-page.xml
 export function pageLoaded(args: EventData) {
@@ -25,4 +27,22 @@ export function nextState(): void {
         "StateData": "ThisIsDataFromTheFirstState"
     };
     AdobeAnalytics.getInstance().trackState('SecondState', data);
+}
+
+export function optIn(): void {
+    AdobeAnalytics.getInstance().optIn();
+}
+
+export function optOut(): void {
+    AdobeAnalytics.getInstance().optOut();
+}
+
+export function appendVisitorId(args): void {
+    let sender = args.object;
+    let parent = sender.parent;
+
+    let lbl: Label = view.getViewById(parent, "LblAppendVisitorId") as Label;
+    if(lbl) {
+        lbl.text = AdobeAnalytics.getInstance().visitorAppendToURL('http://www.urlPlaceholder.org');
+    }
 }
