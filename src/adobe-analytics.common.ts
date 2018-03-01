@@ -12,12 +12,16 @@ export abstract class AdobeAnalyticsCommon {
         return AdobeAnalyticsCommon._instance;
     }
 
-    public abstract setContext(applicationContext: android.content.Context): void;
-    public abstract collectLifecycleData(activity: android.app.Activity, debugLogging?: boolean): void;
+    public abstract setContext(applicationContext: any ): void; // applicationContext type is android.content.Context
+    public abstract collectLifecycleData(activity: any, debugLogging?: boolean): void; // activity type is android.app.Activity
     public abstract pauseCollectingLifecycleData();
     public abstract trackState(state: string, additional: { [key: string]: any }): void;
     public abstract trackAction(action: string, additional: { [key: string]: any }): void;
     public abstract trackTimedActionStart(action: string, additional: { [key: string]: any }): void;
     public abstract trackTimedActionUpdate(action: string, additional: { [key: string]: any }): void;
     public abstract trackTimedActionEnd(action: string): void;
+    public abstract visitorAppendToURL(url: string): string;
+    public abstract trackLocation(location: any, additional: { [key: string]: any; }): void;
+    public abstract optIn(): void;
+    public abstract optOut(): void;
 }

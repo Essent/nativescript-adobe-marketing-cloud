@@ -2,8 +2,8 @@ export declare abstract class AdobeAnalyticsCommon {
     protected static _instance: AdobeAnalyticsCommon;
     constructor();
     static getInstance(): AdobeAnalyticsCommon;
-    abstract setContext(applicationContext: any ): void; //applicationContext type is android.content.Context
-    abstract collectLifecycleData(activity: any, debugLogging?: boolean): void; //activity type is android.app.Activity
+    abstract setContext(applicationContext: any): void;
+    abstract collectLifecycleData(activity: any, debugLogging?: boolean): void;
     abstract pauseCollectingLifecycleData(): any;
     abstract trackState(state: string, additional: {
         [key: string]: any;
@@ -18,4 +18,10 @@ export declare abstract class AdobeAnalyticsCommon {
         [key: string]: any;
     }): void;
     abstract trackTimedActionEnd(action: string): void;
+    abstract visitorAppendToURL(url: string): string;
+    abstract trackLocation(location: any, additional: {
+        [key: string]: any;
+    }): void;
+    abstract optIn(): void;
+    abstract optOut(): void;
 }

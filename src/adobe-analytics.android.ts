@@ -39,6 +39,18 @@ export class AdobeAnalytics extends AdobeAnalyticsCommon {
         com.adobe.mobile.Analytics.trackTimedActionEnd(action, null);
     }
 
+    public trackLocation(location: android.location.Location, additional: { [key: string]: any; }): void {
+        com.adobe.mobile.Analytics.trackLocation(location, this.convertToHashMap(additional));
+    }
+
+    public optIn(): void {
+        com.adobe.mobile.Config.setPrivacyStatus(com.adobe.mobile.MobilePrivacyStatus.MOBILE_PRIVACY_STATUS_OPT_IN);
+    }
+
+    public optOut(): void {
+        com.adobe.mobile.Config.setPrivacyStatus(com.adobe.mobile.MobilePrivacyStatus.MOBILE_PRIVACY_STATUS_OPT_OUT);
+    }
+
     private convertToHashMap(dictionary: { [key: string]: any } = {}): java.util.Map<string, Object> {
         return Object.keys(dictionary)
             .reduce((result, key) => {
@@ -46,6 +58,10 @@ export class AdobeAnalytics extends AdobeAnalyticsCommon {
                 result.put(key, value);
                 return result;
             }, new java.util.HashMap<string, Object>());
+    }
+
+    public visitorAppendToURL(url: string): string {
+        return com.adobe.mobile.Visitor.appendToURL(url);
     }
 
 }

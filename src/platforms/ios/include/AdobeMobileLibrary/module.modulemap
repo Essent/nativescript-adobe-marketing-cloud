@@ -1,0 +1,1 @@
+module AdobeMobileLibrary { explicit module AdobeMobileLibrary { header "ADBMobile.h" } }

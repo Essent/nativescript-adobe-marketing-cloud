@@ -1,8 +1,8 @@
 import { AdobeAnalyticsCommon } from './adobe-analytics.common';
 export declare class AdobeAnalytics extends AdobeAnalyticsCommon {
     protected static _instance: AdobeAnalyticsCommon;
-    setContext(applicationContext: any): void;
-    collectLifecycleData(activity: any, debugLogging?: boolean): void;
+    setContext(applicationContext: android.content.Context): void;
+    collectLifecycleData(activity: android.app.Activity, debugLogging?: boolean): void;
     pauseCollectingLifecycleData(): void;
     trackState(state: string, additional: {
         [key: string]: any;
@@ -17,4 +17,11 @@ export declare class AdobeAnalytics extends AdobeAnalyticsCommon {
         [key: string]: any;
     }): void;
     trackTimedActionEnd(action: string): void;
+    trackLocation(location: android.location.Location, additional: {
+        [key: string]: any;
+    }): void;
+    optIn(): void;
+    optOut(): void;
+    private convertToHashMap(dictionary?);
+    visitorAppendToURL(url: string): string;
 }
