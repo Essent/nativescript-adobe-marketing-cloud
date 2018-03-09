@@ -1,11 +1,11 @@
-import {Observable} from "data/observable";
+import { Observable } from "tns-core-modules/data/observable";
 
 export class HelloWorldModel extends Observable {
-  public message: string;
+    public message: string;
 
-  constructor() {
-    super();
-    this.message = 'This message has been deprecated'
-  }
+    constructor() {
+        super();
+        this.message = 'This message has been deprecated';
+    }
 
 }
