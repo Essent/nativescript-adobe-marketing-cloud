@@ -42,7 +42,7 @@ export function appendVisitorId(args): void {
     let parent = sender.parent;
 
     let lbl: Label = view.getViewById(parent, "LblAppendVisitorId") as Label;
-    if(lbl) {
+    if (lbl) {
         lbl.text = AdobeAnalytics.getInstance().visitorAppendToURL('http://www.urlPlaceholder.org');
     }
 }
