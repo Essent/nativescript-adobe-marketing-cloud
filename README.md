@@ -6,8 +6,8 @@ npm install nativescript-adobe-marketing-cloud --save
 ```
 
 Based on:
-- https://github.com/Adobe-Marketing-Cloud/mobile-services/releases/tag/v4.13.4-iOS
-- https://github.com/Adobe-Marketing-Cloud/mobile-services/releases/tag/v4.13.4-Android
+- https://github.com/Adobe-Marketing-Cloud/mobile-services/releases/tag/v4.18.0-iOS
+- https://github.com/Adobe-Marketing-Cloud/mobile-services/releases/tag/v4.17.2-Android
 
 # Setting up the application for usage with this plugin.
 

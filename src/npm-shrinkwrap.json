@@ -289,24 +289,33 @@
             "dev": true
         },
         "tns-core-modules": {
-            "version": "4.2.2",
-            "resolved": "https://registry.npmjs.org/tns-core-modules/-/tns-core-modules-4.2.2.tgz",
-            "integrity": "sha512-fu7iCZeQxey7gIzvzv2r3hYUHVYRYllOYYZlycDHV291K9mtFC+iGNUgZvLo7rf+hNl/L9I1a7qpmNwB/hvMkg==",
+            "version": "5.1.2",
+            "resolved": "https://registry.npmjs.org/tns-core-modules/-/tns-core-modules-5.1.2.tgz",
+            "integrity": "sha512-3+jTO/KFs07MMNom2rApIfhTY8B8xffHXJVjLVNB1hOIu6e28QM89cWx++e+1zDSIfY7MEMVfvBsbbZ3OgXPxw==",
             "dev": true,
             "requires": {
-                "tns-core-modules-widgets": "4.2.1"
+                "tns-core-modules-widgets": "5.1.2",
+                "tslib": "^1.9.3"
+            },
+            "dependencies": {
+                "tslib": {
+                    "version": "1.9.3",
+                    "resolved": "https://registry.npmjs.org/tslib/-/tslib-1.9.3.tgz",
+                    "integrity": "sha512-4krF8scpejhaOgqzBEcGM7yDIEfi0/8+8zDRZhNZZ2kjmHJ4hv3zCbQWxoJGz1iw5U0Jl0nma13xzHXcncMavQ==",
+                    "dev": true
+                }
             }
         },
         "tns-core-modules-widgets": {
-            "version": "4.2.1",
-            "resolved": "https://registry.npmjs.org/tns-core-modules-widgets/-/tns-core-modules-widgets-4.2.1.tgz",
-            "integrity": "sha512-ncy7D1oxuuX78sZL+MImxEZBYOUnxma7ZIkAsGRdyPjb7a/A/MoaIXmDLK+Ib2xw4Ul2qlCD1nvF56Q1Dy1m4Q==",
+            "version": "5.1.2",
+            "resolved": "https://registry.npmjs.org/tns-core-modules-widgets/-/tns-core-modules-widgets-5.1.2.tgz",
+            "integrity": "sha512-Pga3hcC2nWsERG/817AEACoVww+RuYyoDJk6w+FK+drW9TnkFbz4zkT3R65mfvwbi29ncvN81EIPuUQsLEl4BQ==",
             "dev": true
         },
         "tns-platform-declarations": {
-            "version": "4.2.2",
-            "resolved": "https://registry.npmjs.org/tns-platform-declarations/-/tns-platform-declarations-4.2.2.tgz",
-            "integrity": "sha512-KP2opjJJsCG/tq8h0OJeRdRghoOLyMsAW22Tvyfuye0pGjsStgRaP3TmKpJY4daHTIwn1W9P3jBeybbPB09gvQ==",
+            "version": "4.2.0",
+            "resolved": "https://registry.npmjs.org/tns-platform-declarations/-/tns-platform-declarations-4.2.0.tgz",
+            "integrity": "sha512-XY31UJiLzmQsYx4fdbG6yUIoEO/p5y3ApYvIYQlSzuXDaekKk96dfBPXNe9P3JNfZZSybQttK7Vqv9w9yTjdkA==",
             "dev": true
         },
         "tslib": {
@@ -345,9 +354,9 @@
             }
         },
         "typescript": {
-            "version": "2.8.4",
-            "resolved": "https://registry.npmjs.org/typescript/-/typescript-2.8.4.tgz",
-            "integrity": "sha512-IIU5cN1mR5J3z9jjdESJbnxikTrEz3lzAw/D0Tf45jHpBp55nY31UkUvmVHoffCfKHTqJs3fCLPDxknQTTFegQ==",
+            "version": "3.1.6",
+            "resolved": "https://registry.npmjs.org/typescript/-/typescript-3.1.6.tgz",
+            "integrity": "sha512-tDMYfVtvpb96msS1lDX9MEdHrW4yOuZ4Kdc4Him9oU796XldPYF/t2+uKoX0BBa0hXXwDlqYQbXY5Rzjzc5hBA==",
             "dev": true
         },
         "wrappy": {
