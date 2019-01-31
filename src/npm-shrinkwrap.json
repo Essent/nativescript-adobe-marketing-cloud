@@ -1,6 +1,6 @@
 {
     "name": "nativescript-adobe-marketing-cloud",
-    "version": "1.5.1",
+    "version": "1.0.0",
     "lockfileVersion": 1,
     "requires": true,
     "dependencies": {
@@ -415,14 +415,6 @@
             "requires": {
                 "tns-core-modules-widgets": "5.1.2",
                 "tslib": "^1.9.3"
-            },
-            "dependencies": {
-                "tslib": {
-                    "version": "1.9.3",
-                    "resolved": "https://registry.npmjs.org/tslib/-/tslib-1.9.3.tgz",
-                    "integrity": "sha512-4krF8scpejhaOgqzBEcGM7yDIEfi0/8+8zDRZhNZZ2kjmHJ4hv3zCbQWxoJGz1iw5U0Jl0nma13xzHXcncMavQ==",
-                    "dev": true
-                }
             }
         },
         "tns-core-modules-widgets": {

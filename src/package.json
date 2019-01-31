@@ -1,7 +1,7 @@
 {
     "name": "nativescript-adobe-marketing-cloud",
-    "version": "1.5.1",
-    "description": "Nativescript Adobe marketing cloud integration plugin",
+    "version": "1.0.0",
+    "description": "Your awesome NativeScript plugin.",
     "main": "adobe-analytics",
     "typings": "index.d.ts",
     "nativescript": {
@@ -11,46 +11,37 @@
         }
     },
     "scripts": {
-        "tsc": "tsc -skipLibCheck",
-        "build": "npm i && tsc",
-        "postclone": "npm i && node scripts/postclone.js && cd ../demo && npm i && cd ../src && npm run plugin.link",
-        "test.android": "npm i && npm run tsc && npm run tslint && cd ../demo && tns build android && tns test android --justlaunch",
-        "test.ios": "npm i && npm run tsc && npm run tslint && cd ../demo && tns build ios && tns test ios --justlaunch",
-        "tslint": "cd .. && tslint \"**/*.ts\" --config tslint.json",
-        "plugin.link": "npm link && cd ../demo && npm link nativescript-adobe-marketing-cloud && cd ../src",
+        "tsc": "tsc",
+        "build": "npm run tsc && npm run build.native",
+        "build.native": "node scripts/build-native.js",
+        "postclone": "npm i && node scripts/postclone.js && cd ../demo && npm i && npx rimraf -- package-lock.json && cd ../src",
+        "test.android": "npm run tsc && npm run tslint && cd ../demo && tns build android && tns test android --justlaunch",
+        "test.ios": "npm run tsc && npm run tslint && cd ../demo && tns build ios && tns test ios --justlaunch",
+        "tslint": "cd .. && tslint \"**/*.ts\" --config tslint.json --exclude \"**/node_modules/**\"",
         "plugin.tscwatch": "npm run tsc -- -w",
-        "demo.ios": "npm i && npm run tsc && cd ../demo && tns run ios --syncAllFiles",
-        "demo.android": "npm i && npm run tsc && cd ../demo && tns run android --syncAllFiles",
-        "demo.reset": "cd ../demo && rimraf platforms",
-        "plugin.prepare": "npm run tsc && cd ../demo && tns plugin remove nativescript-adobe-marketing-cloud && tns plugin add ../src",
-        "clean": "cd ../demo && rm -rf hooks node_modules platforms && cd ../src && rm -rf node_modules && npm run plugin.link",
-        "ci.tslint": "npm i && tslint '**/*.ts' --config '../tslint.json' --exclude '**/node_modules/**'"
-    },
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/Essent/nativescript-adobe-marketing-cloud.git"
+        "demo.ios": "npm run tsc && cd ../demo && tns run ios --syncAllFiles --emulator",
+        "demo.android": "npm run tsc && cd ../demo && tns run android --syncAllFiles --emulator",
+        "demo.reset": "cd ../demo && npx rimraf -- hooks node_modules platforms package-lock.json",
+        "plugin.prepare": "npm run build && cd ../demo && tns plugin remove nativescript-adobe-marketing-cloud && tns plugin add ../src",
+        "clean": "npm run demo.reset && npx rimraf -- node_modules package-lock.json && npm i",
+        "ci.tslint": "npm i && tslint '**/*.ts' --config '../tslint.json' --exclude '**/node_modules/**' --exclude '**/platforms/**'",
+        "pack": "npm run build.native && npm pack"
     },
     "keywords": [
         "NativeScript",
         "JavaScript",
         "Android",
-        "iOS",
-        "Adobe",
-        "Adobe Mobile SDK"
+        "iOS"
     ],
     "author": {
-        "name": "Essent"
+        "name": "Your Name",
+        "email": "youremail@yourdomain.com"
     },
-    "contributors": [
-        "Jasper Boeijenga <jasper.boeijenga@essent.nl>",
-        "Henk Bakker <spike1292@gmail.com>",
-        "Oscar Lodriguez <o.lodriguez@gmail.com>",
-        "Robert Jan Van der Hulst <rvdhulst@quintor.nl>",
-        "Steve Jackson <stevenljackson1@gmail.com>",
-        "Corné de Bruin <corne.de.bruin@navara.nl>"
-    ],
-    "license": "MIT",
-    "homepage": "https://github.com/Essent/nativescript-adobe-marketing-cloud",
+    "bugs": {
+        "url": "https://github.com/YourName/nativescript-yourplugin/issues"
+    },
+    "license": "Apache-2.0",
+    "homepage": "https://github.com/YourName/nativescript-yourplugin",
     "readmeFilename": "README.md",
     "devDependencies": {
         "tns-core-modules": "^5.1.0",
@@ -61,5 +52,6 @@
         "tslint": "^5.11.0",
         "semver": "^5.6.0"
     },
+    "dependencies": {},
     "bootstrapper": "nativescript-plugin-seed"
 }
