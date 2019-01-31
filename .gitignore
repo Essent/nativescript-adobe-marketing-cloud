@@ -14,3 +14,4 @@ demo/typings
 node_modules
 .idea
 .vscode
+src/platforms/android/nativescript_adobe_marketing_cloud.aar

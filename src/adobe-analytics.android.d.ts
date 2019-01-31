@@ -22,6 +22,6 @@ export declare class AdobeAnalytics extends AdobeAnalyticsCommon {
     }): void;
     optIn(): void;
     optOut(): void;
-    private convertToHashMap;
+    private convertToHashMap(dictionary?);
     visitorAppendToURL(url: string): string;
 }
