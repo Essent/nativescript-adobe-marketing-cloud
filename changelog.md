@@ -1,3 +1,8 @@
+#1.6.0
+Upgrade to NativeScript 5
+New Android SDK 4.17.2
+New iOS SDK 4.18.0
+
 #1.5.1
 Upgrade karma to 2.0.5 to resolve a security vulnerability
 See: https://nvd.nist.gov/vuln/detail/CVE-2017-16113
