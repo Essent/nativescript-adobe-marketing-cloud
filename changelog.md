@@ -1,7 +1,7 @@
-#1.5.2
-Upgrade to nativescript 5
-New android sdk 4.17.2
-New iOS sdk 4.18.0
+#1.6.0
+Upgrade to NativeScript 5
+New Android SDK 4.17.2
+New iOS SDK 4.18.0
 
 #1.5.1
 Upgrade karma to 2.0.5 to resolve a security vulnerability
