@@ -113,11 +113,15 @@ declare class ADBMobile extends NSObject {
 
 	static debugLogging(): boolean;
 
+	static getAllIdentifiersAsync(callback: (p1: string) => void): void;
+
 	static initializeWatch(): void;
 
 	static keepLifecycleSessionAlive(): void;
 
 	static lifetimeValue(): NSDecimalNumber;
+
+	static locationClickedWithNameMboxParametersProductParametersOrderParametersProfileParameters(name: string, mboxParameters: NSDictionary<any, any>, productParameters: NSDictionary<any, any>, orderParameters: NSDictionary<any, any>, profileParameters: NSDictionary<any, any>): void;
 
 	static mediaAdCreateSettingsWithNameLengthPlayerNameParentNameParentPodParentPodPositionCPM(name: string, length: number, playerName: string, parentName: string, parentPod: string, parentPodPosition: number, CPM: string): ADBMediaSettings;
 
@@ -144,6 +148,8 @@ declare class ADBMobile extends NSObject {
 	static privacyStatus(): ADBMobilePrivacyStatus;
 
 	static registerAdobeDataCallback(callback: (p1: ADBMobileDataEvent, p2: NSDictionary<any, any>) => void): void;
+
+	static registerURLSessionConfigurationCallback(callback: (p1: NSURLSessionConfiguration) => void): void;
 
 	static setAdvertisingIdentifier(identifier: string): void;
 
@@ -173,7 +179,19 @@ declare class ADBMobile extends NSObject {
 
 	static targetLoadRequestWithNameDefaultContentProfileParametersOrderParametersMboxParametersRequestLocationParametersCallback(name: string, defaultContent: string, profileParameters: NSDictionary<any, any>, orderParameters: NSDictionary<any, any>, mboxParameters: NSDictionary<any, any>, requestLocationParameters: NSDictionary<any, any>, callback: (p1: string) => void): void;
 
+	static targetLoadRequestsWithProfileParameters(requests: NSArray<any> | any[], profileParameters: NSDictionary<any, any>): void;
+
 	static targetPcID(): string;
+
+	static targetPrefetchClearCache(): void;
+
+	static targetPrefetchContentWithProfileParametersCallback(targetPrefetchObjectArray: NSArray<any> | any[], profileParameters: NSDictionary<any, any>, callback: (p1: boolean) => void): void;
+
+	static targetPrefetchObjectWithNameMboxParameters(name: string, mboxParameters: NSDictionary<any, any>): ADBTargetPrefetchObject;
+
+	static targetPreviewRestartDeepLink(callbackURL: string): void;
+
+	static targetRequestObjectWithNameDefaultContentMboxParametersCallback(name: string, defaultContent: string, mboxParameters: NSDictionary<any, any>, callback: (p1: string) => void): ADBTargetRequestObject;
 
 	static targetSessionID(): string;
 
@@ -222,6 +240,8 @@ declare class ADBMobile extends NSObject {
 	static visitorAppendToURL(url: NSURL): NSURL;
 
 	static visitorGetIDs(): NSArray<any>;
+
+	static visitorGetUrlVariablesAsync(callback: (p1: string) => void): void;
 
 	static visitorMarketingCloudID(): string;
 
@@ -298,6 +318,32 @@ declare var ADBTargetParameterOrderId: string;
 declare var ADBTargetParameterOrderTotal: string;
 
 declare var ADBTargetParameterProductPurchasedId: string;
+
+declare class ADBTargetPrefetchObject extends NSObject {
+
+	static alloc(): ADBTargetPrefetchObject; // inherited from NSObject
+
+	static new(): ADBTargetPrefetchObject; // inherited from NSObject
+
+	mboxParameters: NSDictionary<any, any>;
+
+	name: string;
+
+	orderParameters: NSDictionary<any, any>;
+
+	productParameters: NSDictionary<any, any>;
+}
+
+declare class ADBTargetRequestObject extends ADBTargetPrefetchObject {
+
+	static alloc(): ADBTargetRequestObject; // inherited from NSObject
+
+	static new(): ADBTargetRequestObject; // inherited from NSObject
+
+	callback: (p1: string) => void;
+
+	defaultContent: string;
+}
 
 declare class ADBVisitorID extends NSObject {
 
