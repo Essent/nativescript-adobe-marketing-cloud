@@ -6,8 +6,8 @@ npm install nativescript-adobe-marketing-cloud --save
 ```
 
 Based on:
-- https://github.com/Adobe-Marketing-Cloud/mobile-services/releases/tag/v4.13.4-iOS
-- https://github.com/Adobe-Marketing-Cloud/mobile-services/releases/tag/v4.13.4-Android
+- https://github.com/Adobe-Marketing-Cloud/mobile-services/releases/tag/v4.18.0-iOS
+- https://github.com/Adobe-Marketing-Cloud/mobile-services/releases/tag/v4.17.2-Android
 
 # Setting up the application for usage with this plugin.
 
@@ -59,9 +59,11 @@ Get the config file from the Adobe dashboard.
 ### iOS
 place `ADBMobileConfig.json` file in `app\App_Resources\iOS`
 
-## Android
+### Android
 place `adbmobileconfig.json` file in `app\App_Resources\Android\raw`
 
+#### Note
+Make sure that setContext is done before calling any of the tracking functions, otherwise the SDK behind the plugin will crash.
 
 ## Track states and actions
 
