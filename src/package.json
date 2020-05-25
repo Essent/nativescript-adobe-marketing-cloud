@@ -1,30 +1,27 @@
 {
     "name": "nativescript-adobe-marketing-cloud",
-    "version": "1.5.1",
+    "version": "2.0.0",
     "description": "Nativescript Adobe marketing cloud integration plugin",
     "main": "adobe-analytics",
     "typings": "index.d.ts",
     "nativescript": {
         "platforms": {
-            "android": "3.4.0",
-            "ios": "3.4.0"
+            "android": "6.0.0",
+            "ios": "6.0.1"
         }
     },
     "scripts": {
-        "tsc": "tsc -skipLibCheck",
-        "build": "npm i && tsc",
-        "postclone": "npm i && node scripts/postclone.js && cd ../demo && npm i && cd ../src && npm run plugin.link",
-        "test.android": "npm i && npm run tsc && npm run tslint && cd ../demo && tns build android && tns test android --justlaunch",
-        "test.ios": "npm i && npm run tsc && npm run tslint && cd ../demo && tns build ios && tns test ios --justlaunch",
-        "tslint": "cd .. && tslint \"**/*.ts\" --config tslint.json",
-        "plugin.link": "npm link && cd ../demo && npm link nativescript-adobe-marketing-cloud && cd ../src",
-        "plugin.tscwatch": "npm run tsc -- -w",
-        "demo.ios": "npm i && npm run tsc && cd ../demo && tns run ios --syncAllFiles",
-        "demo.android": "npm i && npm run tsc && cd ../demo && tns run android --syncAllFiles",
-        "demo.reset": "cd ../demo && rimraf platforms",
-        "plugin.prepare": "npm run tsc && cd ../demo && tns plugin remove nativescript-adobe-marketing-cloud && tns plugin add ../src",
-        "clean": "cd ../demo && rimraf hooks node_modules platforms && cd ../src && rimraf node_modules && npm run plugin.link",
-        "ci.tslint": "npm i && tslint '**/*.ts' --config '../tslint.json' --exclude '**/node_modules/**'"
+        "tsc": "npm i && tsc",
+        "build": "npm run tsc && npm run build.native",
+        "build.native": "node scripts/build-native.js",
+        "tslint": "cd .. && tslint \"**/*.ts\" --config tslint.json --exclude \"**/node_modules/**\"",
+        "ci.tslint": "npm i && tslint '**/*.ts' --config '../tslint.json' --exclude '**/node_modules/**' --exclude '**/platforms/**'",
+        "prepack": "npm run build.native",
+        "demo.ios": "npm i && cd ../demo && tns run ios",
+        "demo.android": "npm i && cd ../demo && tns run android",
+        "demo.reset": "cd ../demo && npx rimraf -- hooks node_modules platforms package-lock.json",
+        "plugin.prepare": "npm run build && cd ../demo && tns plugin remove nativescript-adobe-marketing-cloud && tns plugin add ../src",
+        "clean": "npm run demo.reset && npx rimraf -- node_modules package-lock.json && npm i"
     },
     "repository": {
         "type": "git",
@@ -53,13 +50,14 @@
     "homepage": "https://github.com/Essent/nativescript-adobe-marketing-cloud",
     "readmeFilename": "README.md",
     "devDependencies": {
-        "tns-core-modules": "^3.4.0",
-        "tns-platform-declarations": "^3.4.0",
-        "tslint": "^5.9.1",
-        "typescript": "2.3.4"
+        "tns-core-modules": "^6.0.0",
+        "tns-platform-declarations": "^6.0.0",
+        "typescript": "~3.4.5",
+        "prompt": "^1.0.0",
+        "rimraf": "^2.6.3",
+        "tslint": "^5.12.1",
+        "semver": "^5.6.0"
     },
-    "peerDependencies": {
-        "tns-core-modules": "^3.4.0"
-    },
+    "dependencies": {},
     "bootstrapper": "nativescript-plugin-seed"
 }

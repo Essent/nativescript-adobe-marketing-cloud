@@ -1,0 +1,7 @@
+platform :ios, '11.0'
+
+use_frameworks!
+pod 'ACPGriffon', '~> 1.0'
+pod 'ACPUserProfile', '~> 2.0'
+pod 'ACPCore', '~> 2.0'
+pod 'ACPAnalytics', '~> 2.0'

@@ -1,67 +1,63 @@
 import { AdobeAnalyticsCommon } from './adobe-analytics.common';
 
-declare var com: any;
-
+import MobileCore = com.adobe.marketing.mobile.MobileCore;
+import LoggingMode = com.adobe.marketing.mobile.LoggingMode;
+import Lifecycle = com.adobe.marketing.mobile.Lifecycle;
+import Signal = com.adobe.marketing.mobile.Signal;
+import Identity = com.adobe.marketing.mobile.Identity;
+import MobilePrivacyStatus = com.adobe.marketing.mobile.MobilePrivacyStatus;
+import AdobeCallbackWithError = com.adobe.marketing.mobile.AdobeCallbackWithError;
 export class AdobeAnalytics extends AdobeAnalyticsCommon {
     protected static _instance: AdobeAnalyticsCommon = new AdobeAnalytics();
 
-    public setContext(applicationContext: android.content.Context): void {
-        com.adobe.mobile.Config.overrideConfigStream(applicationContext.getResources().openRawResource(applicationContext.getResources().getIdentifier("adbmobileconfig", "raw", applicationContext.getPackageName())));
-        com.adobe.mobile.Config.setContext(applicationContext);
+    public initSdk(environmentId: string, app: any): void {
+        MobileCore.setApplication(app);
+        MobileCore.setLogLevel(LoggingMode.DEBUG);
+        Lifecycle.registerExtension();
+        Identity.registerExtension();
+        Signal.registerExtension();
+        MobileCore.start(new AdobeCallbackWithError({
+            fail(error: com.adobe.marketing.mobile.AdobeError): void {
+                console.error("An error occured when trying to initialise adobe: " + error.getErrorName());
+            },
+            call(o: Object): void {
+                console.log('Nije errorr');
+                MobileCore.configureWithAppID(environmentId);
+           }
+        }));
     }
 
-    public collectLifecycleData(activity: android.app.Activity, debugLogging: boolean = true): void {
-        com.adobe.mobile.Config.setDebugLogging(java.lang.Boolean.valueOf(debugLogging));
-        com.adobe.mobile.Config.collectLifecycleData(activity);
+    public collectLifecycleData(additional: { [key: string]: any }): void {
+        MobileCore.lifecycleStart(this.convertToHashMap(additional));
     }
 
-    public pauseCollectingLifecycleData() {
-        com.adobe.mobile.Config.pauseCollectingLifecycleData();
+    public pauseCollectingLifecycleData(): void {
+        MobileCore.lifecyclePause();
     }
 
     public trackState(state: string, additional: { [key: string]: any }): void {
-        com.adobe.mobile.Analytics.trackState(state, this.convertToHashMap(additional));
+        MobileCore.trackState(state, this.convertToHashMap(additional));
     }
 
     public trackAction(action: string, additional: { [key: string]: any }): void {
-        com.adobe.mobile.Analytics.trackAction(action, this.convertToHashMap(additional));
-    }
-
-    public trackTimedActionStart(action: string, additional: { [key: string]: any }): void {
-        com.adobe.mobile.Analytics.trackTimedActionStart(action, this.convertToHashMap(additional));
-    }
-
-    public trackTimedActionUpdate(action: string, additional: { [key: string]: any }): void {
-        com.adobe.mobile.Analytics.trackTimedActionUpdate(action, this.convertToHashMap(additional));
-    }
-
-    public trackTimedActionEnd(action: string): void {
-        com.adobe.mobile.Analytics.trackTimedActionEnd(action, null);
-    }
-
-    public trackLocation(location: android.location.Location, additional: { [key: string]: any; }): void {
-        com.adobe.mobile.Analytics.trackLocation(location, this.convertToHashMap(additional));
+        MobileCore.trackAction(action, this.convertToHashMap(additional));
     }
 
     public optIn(): void {
-        com.adobe.mobile.Config.setPrivacyStatus(com.adobe.mobile.MobilePrivacyStatus.MOBILE_PRIVACY_STATUS_OPT_IN);
+        MobileCore.setPrivacyStatus(MobilePrivacyStatus.OPT_IN);
     }
 
     public optOut(): void {
-        com.adobe.mobile.Config.setPrivacyStatus(com.adobe.mobile.MobilePrivacyStatus.MOBILE_PRIVACY_STATUS_OPT_OUT);
+        MobileCore.setPrivacyStatus(MobilePrivacyStatus.OPT_OUT);
     }
 
-    private convertToHashMap(dictionary: { [key: string]: any } = {}): java.util.Map<string, Object> {
+    private convertToHashMap(dictionary: { [key: string]: any } = {}): java.util.Map<string, string> {
         return Object.keys(dictionary)
             .reduce((result, key) => {
                 const value = dictionary[key];
                 result.put(key, value);
                 return result;
-            }, new java.util.HashMap<string, Object>());
-    }
-
-    public visitorAppendToURL(url: string): string {
-        return com.adobe.mobile.Visitor.appendToURL(url);
+            }, new java.util.HashMap<string, string>());
     }
 
 }
