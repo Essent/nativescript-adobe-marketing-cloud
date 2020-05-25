@@ -74,7 +74,7 @@ module.exports = env => {
 
     const entryModule = nsWebpack.getEntryModule(appFullPath, platform);
     const entryPath = `.${sep}${entryModule}.ts`;
-    const entries = env.entries || {};
+    let entries = env.entries || {};
     entries.bundle = entryPath;
 
     const tsConfigPath = resolve(projectRoot, "tsconfig.tns.json");
@@ -82,6 +82,11 @@ module.exports = env => {
     const areCoreModulesExternal = Array.isArray(env.externals) && env.externals.some(e => e.indexOf("tns-core-modules") > -1);
     if (platform === "ios" && !areCoreModulesExternal) {
         entries["tns_modules/tns-core-modules/inspector_modules"] = "inspector_modules";
+    } else {
+        entries = {
+            bundle: entryPath,
+            application: "./application.android"
+        }
     };
 
     let sourceMapFilename = nsWebpack.getSourceMapFilename(hiddenSourceMap, __dirname, dist);
