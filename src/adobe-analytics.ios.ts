@@ -9,8 +9,6 @@ export class AdobeAnalytics extends AdobeAnalyticsCommon {
         ACPLifecycle.registerExtension();
         ACPIdentity.registerExtension();
         ACPSignal.registerExtension();
-        ACPCore.start(null);
-
         ACPCore.start(function callback() {
             if (app.applicationState !== UIApplicationState.Background) {
                 ACPCore.lifecycleStart(null);
