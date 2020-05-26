@@ -6,9 +6,12 @@ export class AdobeAnalytics extends AdobeAnalyticsCommon {
     public initSdk(environmentId: string, app: UIApplication): void {
         ACPCore.setLogLevel(ACPMobileLogLevel.Debug);
         ACPCore.configureWithAppId(environmentId);
+        ACPGriffon.registerExtension();
+        ACPUserProfile.registerExtension();
         ACPLifecycle.registerExtension();
         ACPIdentity.registerExtension();
         ACPSignal.registerExtension();
+        ACPAnalytics.registerExtension();
         ACPCore.start(function callback() {
             if (app.applicationState !== UIApplicationState.Background) {
                 ACPCore.lifecycleStart(null);
