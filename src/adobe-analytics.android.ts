@@ -12,7 +12,7 @@ export class AdobeAnalytics extends AdobeAnalyticsCommon {
 
     private app: any;
 
-    public initSdk(environmentId: string, app: any): void {
+    public initSdk(environmentId: string, app: android.app.Application): void {
         this.app = app;
         MobileCore.setApplication(this.app);
         MobileCore.setLogLevel(LoggingMode.DEBUG);
@@ -28,10 +28,6 @@ export class AdobeAnalytics extends AdobeAnalyticsCommon {
                 MobileCore.configureWithAppID(environmentId);
            }
         }));
-    }
-
-    public postInit(stateBackground: boolean): void {
-        // Needed only for IOS for now
     }
 
     public collectLifecycleData(additional: { [key: string]: any }): void {

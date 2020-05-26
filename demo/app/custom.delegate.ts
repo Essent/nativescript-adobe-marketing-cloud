@@ -6,7 +6,7 @@ if (ios) {
         public static ObjCProtocols = [UIApplicationDelegate];
 
         applicationDidFinishLaunchingWithOptions(application: UIApplication, launchOptions: NSDictionary<string, any>): boolean {
-            AdobeAnalytics.getInstance().initSdk('asdf', null);
+            AdobeAnalytics.getInstance().initSdk('asdf', application);
             return true;
         }
     }

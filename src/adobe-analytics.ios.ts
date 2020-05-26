@@ -3,13 +3,19 @@ import { AdobeAnalyticsCommon } from './adobe-analytics.common';
 export class AdobeAnalytics extends AdobeAnalyticsCommon {
     protected static _instance: AdobeAnalyticsCommon = new AdobeAnalytics();
 
-    public initSdk(environmentId: string, app: any): void {
+    public initSdk(environmentId: string, app: UIApplication): void {
         ACPCore.setLogLevel(ACPMobileLogLevel.Debug);
         ACPCore.configureWithAppId(environmentId);
         ACPLifecycle.registerExtension();
         ACPIdentity.registerExtension();
         ACPSignal.registerExtension();
         ACPCore.start(null);
+
+        ACPCore.start(function callback() {
+            if (app.applicationState !== UIApplicationState.Background) {
+                ACPCore.lifecycleStart(null);
+            }
+        });
     }
 
     public collectLifecycleData(additional: { [key: string]: any }): void {
@@ -35,22 +41,6 @@ export class AdobeAnalytics extends AdobeAnalyticsCommon {
 
     public optOut(): void {
         ACPCore.setPrivacyStatus(ACPMobilePrivacyStatus.OptOut);
-    }
-
-    /**
-     * Should be called from applicationDidFinishLaunchingWithOptions IOS delegate
-     *
-     * @param stateBackground
-     */
-    public postInit(stateBackground: boolean): void {
-        // TODO the same is called from SDK init, should SDK init be called from applicationDidFinishLaunchingWithOptions?
-        // In that case this should be merged with init
-        ACPLifecycle.registerExtension();
-        ACPCore.start(function callback() {
-            if (stateBackground) {
-                ACPCore.lifecycleStart(null);
-            }
-        });
     }
 
     /**
