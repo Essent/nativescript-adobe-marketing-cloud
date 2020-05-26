@@ -10,8 +10,11 @@ import AdobeCallbackWithError = com.adobe.marketing.mobile.AdobeCallbackWithErro
 export class AdobeAnalytics extends AdobeAnalyticsCommon {
     protected static _instance: AdobeAnalyticsCommon = new AdobeAnalytics();
 
+    private app: any;
+
     public initSdk(environmentId: string, app: any): void {
-        MobileCore.setApplication(app);
+        this.app = app;
+        MobileCore.setApplication(this.app);
         MobileCore.setLogLevel(LoggingMode.DEBUG);
         Lifecycle.registerExtension();
         Identity.registerExtension();
@@ -33,6 +36,11 @@ export class AdobeAnalytics extends AdobeAnalyticsCommon {
 
     public pauseCollectingLifecycleData(): void {
         MobileCore.lifecyclePause();
+    }
+
+    public resume(): void {
+        MobileCore.setApplication(this.app);
+        MobileCore.lifecycleStart(null);
     }
 
     public trackState(state: string, additional: { [key: string]: any }): void {
