@@ -1,6 +1,6 @@
 {
     "name": "nativescript-adobe-marketing-cloud",
-    "version": "2.0.0",
+    "version": "2.0.1",
     "description": "Nativescript Adobe marketing cloud integration plugin",
     "main": "adobe-analytics",
     "typings": "index.d.ts",
@@ -17,8 +17,8 @@
         "tslint": "cd .. && tslint \"**/*.ts\" --config tslint.json --exclude \"**/node_modules/**\"",
         "ci.tslint": "npm i && tslint '**/*.ts' --config '../tslint.json' --exclude '**/node_modules/**' --exclude '**/platforms/**'",
         "prepack": "npm run build.native",
-        "demo.ios": "npm i && cd ../demo && tsc && tns run ios",
-        "demo.android": "npm i && cd ../demo && tsc && tns run android",
+        "demo.ios": "npm i && cd ../demo && tns run ios",
+        "demo.android": "npm i && cd ../demo && tns run android",
         "demo.reset": "cd ../demo && npx rimraf -- hooks node_modules platforms package-lock.json",
         "plugin.prepare": "npm run build && cd ../demo && tns plugin remove nativescript-adobe-marketing-cloud && tns plugin add ../src",
         "clean": "npm run demo.reset && npx rimraf -- node_modules package-lock.json && npm i"
