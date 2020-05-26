@@ -30,6 +30,10 @@ export class AdobeAnalytics extends AdobeAnalyticsCommon {
         }));
     }
 
+    public postInit(stateBackground: boolean): void {
+        // Needed only for IOS for now
+    }
+
     public collectLifecycleData(additional: { [key: string]: any }): void {
         MobileCore.lifecycleStart(this.convertToHashMap(additional));
     }
