@@ -1,7 +1,7 @@
 import { AdobeAnalyticsCommon } from './adobe-analytics.common';
 export declare class AdobeAnalytics extends AdobeAnalyticsCommon {
     protected static _instance: AdobeAnalyticsCommon;
-    initSdk(environmentId: string, app: any): void;
+    initSdk(environmentId: string, app: UIApplication): void;
     collectLifecycleData(additional: {
         [key: string]: any;
     }): void;
@@ -14,4 +14,5 @@ export declare class AdobeAnalytics extends AdobeAnalyticsCommon {
     }): void;
     optIn(): void;
     optOut(): void;
+    resumeCollectingLifecycleData(): void;
 }

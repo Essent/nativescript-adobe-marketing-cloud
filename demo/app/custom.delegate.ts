@@ -9,6 +9,16 @@ if (ios) {
             AdobeAnalytics.getInstance().initSdk('asdf', application);
             return true;
         }
+
+        applicationDidEnterBackground(application: UIApplication): void {
+            console.log('***** Application entered Background');
+            AdobeAnalytics.getInstance().pauseCollectingLifecycleData();
+        }
+
+        applicationWillEnterForeground(application: UIApplication){
+            console.log('***** Application entered Foreground');
+            AdobeAnalytics.getInstance().resumeCollectingLifecycleData();
+        }
     }
 
     ios.delegate = MyDelegate;

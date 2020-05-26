@@ -7,6 +7,7 @@ export declare abstract class AdobeAnalyticsCommon {
         [key: string]: any;
     }): void;
     abstract pauseCollectingLifecycleData(): void;
+    abstract resumeCollectingLifecycleData(): void;
     abstract trackState(state: string, additional: {
         [key: string]: any;
     }): void;
