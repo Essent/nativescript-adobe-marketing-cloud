@@ -34,11 +34,13 @@ export class AdobeAnalytics extends AdobeAnalyticsCommon {
         MobileCore.lifecycleStart(this.convertToHashMap(additional));
     }
 
+    // Should be called on each Activity pause
     public pauseCollectingLifecycleData(): void {
         MobileCore.lifecyclePause();
     }
 
-    public resume(): void {
+    // Should be called on each Activity resume
+    public resumeCollectingLifecycleData(): void {
         MobileCore.setApplication(this.app);
         MobileCore.lifecycleStart(null);
     }

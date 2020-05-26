@@ -16,6 +16,7 @@ export class AdobeAnalytics extends AdobeAnalyticsCommon {
         ACPCore.lifecycleStart(<NSDictionary<string, string>>additional);
     }
 
+    // Should be called on applicationDidEnterBackground
     public pauseCollectingLifecycleData(): void {
         ACPCore.lifecyclePause();
     }
@@ -34,5 +35,28 @@ export class AdobeAnalytics extends AdobeAnalyticsCommon {
 
     public optOut(): void {
         ACPCore.setPrivacyStatus(ACPMobilePrivacyStatus.OptOut);
+    }
+
+    /**
+     * Should be called from applicationDidFinishLaunchingWithOptions IOS delegate
+     *
+     * @param stateBackground
+     */
+    public postInit(stateBackground: boolean): void {
+        // TODO the same is called from SDK init, should SDK init be called from applicationDidFinishLaunchingWithOptions?
+        // In that case this should be merged with init
+        ACPLifecycle.registerExtension();
+        ACPCore.start(function callback() {
+            if (stateBackground) {
+                ACPCore.lifecycleStart(null);
+            }
+        });
+    }
+
+    /**
+     * Should be called from applicationWillEnterForeground IOS delegate
+     */
+    public resumeCollectingLifecycleData(): void {
+        ACPCore.lifecycleStart(null);
     }
 }

@@ -13,8 +13,10 @@ export abstract class AdobeAnalyticsCommon {
     }
 
   public abstract initSdk(environmentId: string, app: any): void; // app is type of globalAndroid.app.Application
+  public abstract postInit(stateBackground: boolean): void;
   public abstract collectLifecycleData(additional: { [key: string]: any }): void;
   public abstract pauseCollectingLifecycleData(): void;
+  public abstract resumeCollectingLifecycleData(): void;
   public abstract trackState(state: string, additional: { [key: string]: any }): void;
   public abstract trackAction(action: string, additional: { [key: string]: any }): void;
   public abstract optIn(): void;
