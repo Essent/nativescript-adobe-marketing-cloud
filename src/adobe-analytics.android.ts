@@ -5,6 +5,8 @@ import LoggingMode = com.adobe.marketing.mobile.LoggingMode;
 import Lifecycle = com.adobe.marketing.mobile.Lifecycle;
 import Signal = com.adobe.marketing.mobile.Signal;
 import Identity = com.adobe.marketing.mobile.Identity;
+import Analytics = com.adobe.marketing.mobile.Analytics;
+import UserProfile = com.adobe.marketing.mobile.UserProfile;
 import MobilePrivacyStatus = com.adobe.marketing.mobile.MobilePrivacyStatus;
 import AdobeCallbackWithError = com.adobe.marketing.mobile.AdobeCallbackWithError;
 export class AdobeAnalytics extends AdobeAnalyticsCommon {
@@ -17,8 +19,10 @@ export class AdobeAnalytics extends AdobeAnalyticsCommon {
         MobileCore.setApplication(this.app);
         MobileCore.setLogLevel(LoggingMode.DEBUG);
         Lifecycle.registerExtension();
+        Analytics.registerExtension();
         Identity.registerExtension();
         Signal.registerExtension();
+        UserProfile.registerExtension();
         MobileCore.start(new AdobeCallbackWithError({
             fail(error: com.adobe.marketing.mobile.AdobeError): void {
                 console.error("An error occured when trying to initialise adobe: " + error.getErrorName());
