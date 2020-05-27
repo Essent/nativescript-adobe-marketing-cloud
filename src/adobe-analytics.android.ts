@@ -7,6 +7,7 @@ import Signal = com.adobe.marketing.mobile.Signal;
 import Identity = com.adobe.marketing.mobile.Identity;
 import Analytics = com.adobe.marketing.mobile.Analytics;
 import UserProfile = com.adobe.marketing.mobile.UserProfile;
+import Griffon = com.adobe.marketing.mobile.Griffon;
 import MobilePrivacyStatus = com.adobe.marketing.mobile.MobilePrivacyStatus;
 import AdobeCallbackWithError = com.adobe.marketing.mobile.AdobeCallbackWithError;
 export class AdobeAnalytics extends AdobeAnalyticsCommon {
@@ -23,6 +24,7 @@ export class AdobeAnalytics extends AdobeAnalyticsCommon {
         Identity.registerExtension();
         Signal.registerExtension();
         UserProfile.registerExtension();
+        Griffon.registerExtension();
         MobileCore.start(new AdobeCallbackWithError({
             fail(error: com.adobe.marketing.mobile.AdobeError): void {
                 console.error("An error occured when trying to initialise adobe: " + error.getErrorName());

@@ -12,3 +12,4 @@
 /// <reference path="./platforms/android/typings/identity/android.d.ts" />
 /// <reference path="./platforms/android/typings/analytics/android.d.ts" />
 /// <reference path="./platforms/android/typings/userprofile/android.d.ts" />
+/// <reference path="./platforms/android/typings/griffon/android.d.ts" />
