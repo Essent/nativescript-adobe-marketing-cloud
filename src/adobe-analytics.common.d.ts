@@ -2,7 +2,7 @@ export declare abstract class AdobeAnalyticsCommon {
     protected static _instance: AdobeAnalyticsCommon;
     constructor();
     static getInstance(): AdobeAnalyticsCommon;
-    abstract initSdk(environmentId: string, app: any): void;
+    abstract initSdk(adobeAnalyticsSettings: AdobeAnalyticsSettings, app: any): void;
     abstract collectLifecycleData(additional: {
         [key: string]: any;
     }): void;
@@ -16,4 +16,8 @@ export declare abstract class AdobeAnalyticsCommon {
     }): void;
     abstract optIn(): void;
     abstract optOut(): void;
+}
+export interface AdobeAnalyticsSettings {
+    environmentId: string;
+    debug: boolean;
 }

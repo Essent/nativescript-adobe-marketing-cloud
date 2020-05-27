@@ -1,12 +1,12 @@
 import { AdobeAnalyticsCommon } from './adobe-analytics.common';
+import { AdobeAnalyticsSettings } from './adobe-analytics.common';
 
 export class AdobeAnalytics extends AdobeAnalyticsCommon {
     protected static _instance: AdobeAnalyticsCommon = new AdobeAnalytics();
 
-    public initSdk(environmentId: string, app: UIApplication): void {
-        ACPCore.setLogLevel(ACPMobileLogLevel.Debug);
-        ACPCore.configureWithAppId(environmentId);
-        ACPGriffon.registerExtension();
+    public initSdk(adobeAnalyticsSettings: AdobeAnalyticsSettings, app: UIApplication): void {
+        ACPCore.setLogLevel(adobeAnalyticsSettings.debug ? ACPMobileLogLevel.Debug : ACPMobileLogLevel.Error);
+        ACPCore.configureWithAppId(adobeAnalyticsSettings.environmentId);
         ACPUserProfile.registerExtension();
         ACPLifecycle.registerExtension();
         ACPIdentity.registerExtension();

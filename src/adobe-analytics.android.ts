@@ -1,4 +1,5 @@
 import { AdobeAnalyticsCommon } from './adobe-analytics.common';
+import { AdobeAnalyticsSettings } from './adobe-analytics.common';
 
 import MobileCore = com.adobe.marketing.mobile.MobileCore;
 import LoggingMode = com.adobe.marketing.mobile.LoggingMode;
@@ -7,7 +8,6 @@ import Signal = com.adobe.marketing.mobile.Signal;
 import Identity = com.adobe.marketing.mobile.Identity;
 import Analytics = com.adobe.marketing.mobile.Analytics;
 import UserProfile = com.adobe.marketing.mobile.UserProfile;
-import Griffon = com.adobe.marketing.mobile.Griffon;
 import MobilePrivacyStatus = com.adobe.marketing.mobile.MobilePrivacyStatus;
 import AdobeCallbackWithError = com.adobe.marketing.mobile.AdobeCallbackWithError;
 export class AdobeAnalytics extends AdobeAnalyticsCommon {
@@ -15,23 +15,21 @@ export class AdobeAnalytics extends AdobeAnalyticsCommon {
 
     private app: any;
 
-    public initSdk(environmentId: string, app: android.app.Application): void {
+    public initSdk(adobeAnalyticsSetting: AdobeAnalyticsSettings, app: android.app.Application): void {
         this.app = app;
         MobileCore.setApplication(this.app);
-        MobileCore.setLogLevel(LoggingMode.DEBUG);
+        MobileCore.setLogLevel(adobeAnalyticsSetting.debug ? LoggingMode.DEBUG : LoggingMode.ERROR);
         Lifecycle.registerExtension();
         Analytics.registerExtension();
         Identity.registerExtension();
         Signal.registerExtension();
         UserProfile.registerExtension();
-        Griffon.registerExtension();
         MobileCore.start(new AdobeCallbackWithError({
             fail(error: com.adobe.marketing.mobile.AdobeError): void {
                 console.error("An error occured when trying to initialise adobe: " + error.getErrorName());
             },
             call(o: Object): void {
-                console.log('Nije errorr');
-                MobileCore.configureWithAppID(environmentId);
+                MobileCore.configureWithAppID(adobeAnalyticsSetting.environmentId);
            }
         }));
     }

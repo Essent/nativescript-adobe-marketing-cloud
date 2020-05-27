@@ -8,7 +8,6 @@ class Activity extends androidx.appcompat.app.AppCompatActivity {
     private _callbacks: AndroidActivityCallbacks;
 
     public onCreate(savedInstanceState: android.os.Bundle): void {
-      console.log('********** Activity created'); 
       this.isNativeScriptActivity = true;
         if (!this._callbacks) {
             setActivityCallbacks(this);
@@ -46,13 +45,11 @@ class Activity extends androidx.appcompat.app.AppCompatActivity {
     }
 
     public onResume() : void {
-        console.log("********* Android app Resume");
         AdobeAnalytics.getInstance().resumeCollectingLifecycleData();
         super.onResume();
     }
 
     public onPause() : void {
-        console.log("********* Android app Pause")
         AdobeAnalytics.getInstance().pauseCollectingLifecycleData();
         super.onPause();
     }

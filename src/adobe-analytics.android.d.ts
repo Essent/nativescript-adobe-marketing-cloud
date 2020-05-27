@@ -1,8 +1,9 @@
 import { AdobeAnalyticsCommon } from './adobe-analytics.common';
+import { AdobeAnalyticsSettings } from './adobe-analytics.common';
 export declare class AdobeAnalytics extends AdobeAnalyticsCommon {
     protected static _instance: AdobeAnalyticsCommon;
     private app;
-    initSdk(environmentId: string, app: android.app.Application): void;
+    initSdk(adobeAnalyticsSetting: AdobeAnalyticsSettings, app: android.app.Application): void;
     collectLifecycleData(additional: {
         [key: string]: any;
     }): void;
