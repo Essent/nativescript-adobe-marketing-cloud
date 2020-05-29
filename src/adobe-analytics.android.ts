@@ -19,11 +19,11 @@ export class AdobeAnalytics extends AdobeAnalyticsCommon {
         this.app = app;
         MobileCore.setApplication(this.app);
         MobileCore.setLogLevel(adobeAnalyticsSetting.debug ? LoggingMode.DEBUG : LoggingMode.ERROR);
-        Lifecycle.registerExtension();
-        Analytics.registerExtension();
-        Identity.registerExtension();
-        Signal.registerExtension();
         UserProfile.registerExtension();
+        Identity.registerExtension();
+        Lifecycle.registerExtension();
+        Signal.registerExtension();
+        Analytics.registerExtension();
         MobileCore.start(new AdobeCallbackWithError({
             fail(error: com.adobe.marketing.mobile.AdobeError): void {
                 console.error("An error occured when trying to initialise adobe: " + error.getErrorName());

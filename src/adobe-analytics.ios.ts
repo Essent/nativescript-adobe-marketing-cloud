@@ -8,8 +8,8 @@ export class AdobeAnalytics extends AdobeAnalyticsCommon {
         ACPCore.setLogLevel(adobeAnalyticsSettings.debug ? ACPMobileLogLevel.Debug : ACPMobileLogLevel.Error);
         ACPCore.configureWithAppId(adobeAnalyticsSettings.environmentId);
         ACPUserProfile.registerExtension();
-        ACPLifecycle.registerExtension();
         ACPIdentity.registerExtension();
+        ACPLifecycle.registerExtension();
         ACPSignal.registerExtension();
         ACPAnalytics.registerExtension();
         ACPCore.start(function callback() {

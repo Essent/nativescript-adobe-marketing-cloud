@@ -17,4 +17,9 @@ android {
   aaptOptions {
     additionalParameters "--no-version-vectors"
   }
+  buildTypes{
+    customDebugType{
+      debuggable true
+    }
+  }
 }
