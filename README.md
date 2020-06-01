@@ -4,66 +4,108 @@
 ```
 npm install nativescript-adobe-marketing-cloud --save
 ```
+This plugin is based on Nativescript 6 and Adobe Experience Platform solution 
 
-Based on:
-- https://github.com/Adobe-Marketing-Cloud/mobile-services/releases/tag/v4.18.0-iOS
-- https://github.com/Adobe-Marketing-Cloud/mobile-services/releases/tag/v4.17.2-Android
+https://github.com/Adobe-Marketing-Cloud/acp-sdks/releases
+Get the Adobe Experience Platform SDK https://aep-sdks.gitbook.io/docs/getting-started/get-the-sdk
 
 # Setting up the application for usage with this plugin.
 
-## Set up lifecycle tracking
+## Setup config.ts
 
-Listen to lifecycle events:
+Create a configuration file and place your ENVIRONMENT_ID from Adobe Experience platform.
 
 ```ts
-import * as application from "application";
-import {AdobeAnalytics} from "nativescript-adobe-marketing-cloud";
+import { AdobeAnalyticsSettings } from "nativescript-adobe-marketing-cloud";
 
-application.on(application.launchEvent, function (args: application.ApplicationEventData) {
-    if (args.android) {
-        AdobeAnalytics.getInstance().setContext(application.android.context);
-    } else if (args.ios !== undefined) {
-        AdobeAnalytics.getInstance().collectLifecycleData(null);
-    }
-});
-
-application.on(application.suspendEvent, function (args: application.ApplicationEventData) {
-    if (args.android) {
-        AdobeAnalytics.getInstance().pauseCollectingLifecycleData();
-    }
-});
-
-application.on(application.resumeEvent, function (args: application.ApplicationEventData) {
-    if (args.android) {
-        AdobeAnalytics.getInstance().collectLifecycleData(application.android.foregroundActivity);
-    }
-});
-
-if (application.android) {
-    application.android.on(application.AndroidApplication.activityPausedEvent, function (args: application.AndroidActivityEventData) {
-        AdobeAnalytics.getInstance().pauseCollectingLifecycleData();
-    });
-
-    application.android.on(application.AndroidApplication.activityResumedEvent, function (args: application.AndroidActivityEventData) {
-        AdobeAnalytics.getInstance().collectLifecycleData(application.android.foregroundActivity);
-    });
-}
-
-application.start({ moduleName: "main-page" });
-
+export const adobeExperienceSettings: AdobeAnalyticsSettings = {
+    environmentId: 'Put your environment id here.',
+    debug: true
+};
 ```
-
-## Setup ADBMobileConfig.json
-Get the config file from the Adobe dashboard.
-
-### iOS
-place `ADBMobileConfig.json` file in `app\App_Resources\iOS`
+## Initialize SDK
 
 ### Android
-place `adbmobileconfig.json` file in `app\App_Resources\Android\raw`
 
-#### Note
-Make sure that setContext is done before calling any of the tracking functions, otherwise the SDK behind the plugin will crash.
+```ts
+import { AdobeAnalytics } from 'nativescript-adobe-marketing-cloud';
+import { adobeExperienceSettings } from '~/config'; 
+
+@JavaProxy('com.tns.NativeScriptApplication')
+class MyCustomApplication extends android.app.Application {
+
+    public onCreate(): void {
+        super.onCreate();
+        AdobeAnalytics.getInstance().initSdk(adobeExperienceSettings, this);
+    }
+
+    public attachBaseContext(baseContext: android.content.Context) {
+        super.attachBaseContext(baseContext);
+    }
+}
+```
+
+### IOS
+
+```ts
+import { AdobeAnalytics } from 'nativescript-adobe-marketing-cloud';
+import { adobeExperienceSettings } from '~/config'; 
+
+class MyDelegate extends UIResponder implements UIApplicationDelegate {
+    public static ObjCProtocols = [UIApplicationDelegate];
+
+    applicationDidFinishLaunchingWithOptions(application: UIApplication, launchOptions: NSDictionary<string, any>): boolean {
+        AdobeAnalytics.getInstance().initSdk(adobeExperienceSettings, application);
+        return true;
+     }
+ }
+    ios.delegate = MyDelegate;
+```
+
+**NOTE** This plugin provides only initial set of extensions registered with Adobe Experience platform. For any additional extension fork this plugin and configure based on Mobile Property installation instructions. 
+
+## Enable lifecycle tracking
+
+### Android
+ 
+With onResume function start Lifecycle data collection:
+
+```ts
+import {AdobeAnalytics} from "nativescript-adobe-marketing-cloud";
+
+public onResume() : void {
+        AdobeAnalytics.getInstance().resumeCollectingLifecycleData();
+        super.onResume();
+    }
+}
+```
+
+Use onPause function to pause collection Lifecycle data:
+
+```ts
+public onPause() : void {
+        AdobeAnalytics.getInstance().pauseCollectingLifecycleData();
+        super.onPause();
+    }
+```
+### IOS
+
+Start collection Lifecycle data is part of plugin implementation called during initialization of SDK.
+
+When application is resuming from background state, you need to resume collection of Lifecycle data:
+
+```ts
+applicationWillEnterForeground(application: UIApplication){
+    AdobeAnalytics.getInstance().resumeCollectingLifecycleData();
+ }
+```
+When the app enters the background, pause collecting Lifecycle data:
+
+```ts
+applicationDidEnterBackground(application: UIApplication): void {
+    AdobeAnalytics.getInstance().pauseCollectingLifecycleData();
+}
+```
 
 ## Track states and actions
 
@@ -82,15 +124,6 @@ Hold Data Until Opt-In
 ```ts
 AdobeAnalytics.getInstance().optOut();
 ```
-
-## Visitor Tracking Between an App and Mobile Web
-See: https://marketing.adobe.com/resources/help/en_US/mobile/ios/hybrid_app.html
-You can call:
-```ts
-AdobeAnalytics.getInstance().visitorAppendToURL(url);
-```
-
-This will return the url provided extended with the visitorId.
 
 #### <a name='Developmentsetup'></a>Development setup
 For easier development and debugging purposes continue with the following steps:
