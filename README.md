@@ -1,4 +1,4 @@
-# Nativescript plugin for Adobe Marketing Cloud Solutions
+# Nativescript plugin for Adobe Experience Cloud Solution
 [![npm version](https://badge.fury.io/js/nativescript-adobe-marketing-cloud.svg)](https://badge.fury.io/js/nativescript-adobe-marketing-cloud)
 
 ```
