@@ -6,8 +6,8 @@ npm install nativescript-adobe-marketing-cloud --save
 ```
 
 Based on:
-- https://github.com/Adobe-Marketing-Cloud/mobile-services/releases/tag/v4.13.4-iOS
-- https://github.com/Adobe-Marketing-Cloud/mobile-services/releases/tag/v4.13.4-Android
+- https://github.com/Adobe-Marketing-Cloud/mobile-services/releases/tag/v4.18.0-iOS
+- https://github.com/Adobe-Marketing-Cloud/mobile-services/releases/tag/v4.17.2-Android
 
 # Setting up the application for usage with this plugin.
 
@@ -15,7 +15,7 @@ Based on:
 
 Listen to lifecycle events:
 
-```
+```ts
 import * as application from "application";
 import {AdobeAnalytics} from "nativescript-adobe-marketing-cloud";
 
@@ -59,9 +59,11 @@ Get the config file from the Adobe dashboard.
 ### iOS
 place `ADBMobileConfig.json` file in `app\App_Resources\iOS`
 
-## Android
+### Android
 place `adbmobileconfig.json` file in `app\App_Resources\Android\raw`
 
+#### Note
+Make sure that setContext is done before calling any of the tracking functions, otherwise the SDK behind the plugin will crash.
 
 ## Track states and actions
 
@@ -73,18 +75,18 @@ See: https://marketing.adobe.com/resources/help/en_US/mobile/ios/privacy.html
 Select a privacy option:
 
 Send Data Until Opt-Out
-```
+```ts
 AdobeAnalytics.getInstance().optIn();
 ```
 Hold Data Until Opt-In
-```
+```ts
 AdobeAnalytics.getInstance().optOut();
 ```
 
 ## Visitor Tracking Between an App and Mobile Web
 See: https://marketing.adobe.com/resources/help/en_US/mobile/ios/hybrid_app.html
 You can call:
-```
+```ts
 AdobeAnalytics.getInstance().visitorAppendToURL(url);
 ```
 
@@ -184,13 +186,13 @@ Ultimately after the issue in Angular CLI is fixed this would not be a restricti
 ````
 
 *yourplugin.common.ts*
-````
+````ts
 import * as app from 'application';
 ````
 
 **RIGHT**
 
 *yourplugin.common.ts*
-````
+````ts
 import * as app from 'tns-core-modules/application';
 ````

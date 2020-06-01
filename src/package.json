@@ -23,10 +23,6 @@
         "plugin.prepare": "npm run build && cd ../demo && tns plugin remove nativescript-adobe-marketing-cloud && tns plugin add ../src",
         "clean": "npm run demo.reset && npx rimraf -- node_modules package-lock.json && npm i"
     },
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/Essent/nativescript-adobe-marketing-cloud.git"
-    },
     "keywords": [
         "NativeScript",
         "JavaScript",
@@ -37,6 +33,10 @@
     ],
     "author": {
         "name": "Essent"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Essent/nativescript-adobe-marketing-cloud.git"
     },
     "contributors": [
         "Jasper Boeijenga <jasper.boeijenga@essent.nl>",
