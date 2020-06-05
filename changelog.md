@@ -1,3 +1,8 @@
+#2.0.0
+Upgrade to NativeScript 6
+New Android SDK (v5) for Adobe Experience cloud
+New iOS SDK (v5) for Adobe Experience cloud
+
 #1.6.0
 Upgrade to NativeScript 5
 New Android SDK 4.17.2

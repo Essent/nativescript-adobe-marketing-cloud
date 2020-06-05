@@ -12,24 +12,6 @@ export function pageLoaded(args: observable.EventData) {
 
 }
 
-export function startTimedAction(): void {
-    let data: { [id: string]: any } = {
-        "TimedActionStartData": "ThisIsData"
-    };
-    AdobeAnalytics.getInstance().trackTimedActionStart('TimedAction', data);
-}
-
-export function updateTimedAction(): void {
-    let data: { [id: string]: any } = {
-        "TimedActionUpdateData": "ThisIsUpdatedData"
-    };
-    AdobeAnalytics.getInstance().trackTimedActionUpdate('TimedAction', data);
-}
-
-export function endTimedAction(): void {
-    AdobeAnalytics.getInstance().trackTimedActionEnd('TimedAction');
-}
-
 export function previousState(): void {
     let topmost = frameModule.topmost();
     topmost.navigate("main-page");

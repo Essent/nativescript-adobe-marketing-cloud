@@ -36,13 +36,3 @@ export function optIn(): void {
 export function optOut(): void {
     AdobeAnalytics.getInstance().optOut();
 }
-
-export function appendVisitorId(args): void {
-    let sender = args.object;
-    let parent = sender.parent;
-
-    let lbl: Label = view.getViewById(parent, "LblAppendVisitorId") as Label;
-    if (lbl) {
-        lbl.text = AdobeAnalytics.getInstance().visitorAppendToURL('http://www.urlPlaceholder.org');
-    }
-}
