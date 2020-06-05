@@ -1,7 +1,7 @@
 {
-    "name": "nativescript-adobe-marketing-cloud",
-    "version": "2.0.0",
-    "description": "Nativescript Adobe marketing cloud integration plugin",
+    "name": "nativescript-adobe-experience-cloud",
+    "version": "1.0.0",
+    "description": "Nativescript Adobe experience cloud integration plugin",
     "main": "adobe-analytics",
     "typings": "index.d.ts",
     "nativescript": {
@@ -20,7 +20,7 @@
         "demo.ios": "npm i && cd ../demo && tns run ios",
         "demo.android": "npm i && cd ../demo && tns run android",
         "demo.reset": "cd ../demo && npx rimraf -- hooks node_modules platforms package-lock.json",
-        "plugin.prepare": "npm run build && cd ../demo && tns plugin remove nativescript-adobe-marketing-cloud && tns plugin add ../src",
+        "plugin.prepare": "npm run build && cd ../demo && tns plugin remove nativescript-adobe-experience-cloud && tns plugin add ../src",
         "clean": "npm run demo.reset && npx rimraf -- node_modules package-lock.json && npm i"
     },
     "keywords": [
@@ -44,7 +44,11 @@
         "Oscar Lodriguez <o.lodriguez@gmail.com>",
         "Robert Jan Van der Hulst <rvdhulst@quintor.nl>",
         "Steve Jackson <stevenljackson1@gmail.com>",
-        "Corné de Bruin <corne.de.bruin@navara.nl>"
+        "Corné de Bruin <corne.de.bruin@navara.nl>",
+        "Natasa Vukovic <n.vukovic@levi9.com>",
+        "Brane Ivanovic <b.ivanovic@levi9.com>",
+        "Djordje Stojanovic <dj.stojanovic@levi9.com>",
+        "Petar Bozin <pecila@gmail.com>"
     ],
     "license": "MIT",
     "homepage": "https://github.com/Essent/nativescript-adobe-marketing-cloud",
