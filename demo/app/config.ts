@@ -1,4 +1,4 @@
-import { AdobeAnalyticsSettings } from "nativescript-adobe-marketing-cloud";
+import { AdobeAnalyticsSettings } from "nativescript-adobe-experience-cloud";
 
 export const adobeExperienceSettings: AdobeAnalyticsSettings = {
     environmentId: 'Put your environment id here.',

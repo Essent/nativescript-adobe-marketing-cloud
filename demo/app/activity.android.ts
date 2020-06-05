@@ -1,5 +1,5 @@
 import {setActivityCallbacks, AndroidActivityCallbacks} from "tns-core-modules/ui/frame";
-import { AdobeAnalytics } from 'nativescript-adobe-marketing-cloud';
+import { AdobeAnalytics } from 'nativescript-adobe-experience-cloud';
 
 @JavaProxy("nl.essent.NatasasCustomActivity")
 class Activity extends androidx.appcompat.app.AppCompatActivity {

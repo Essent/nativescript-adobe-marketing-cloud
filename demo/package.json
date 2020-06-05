@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@nativescript/theme": "~2.3.3",
-    "nativescript-adobe-marketing-cloud": "file:../src",
+    "nativescript-adobe-experience-cloud": "file:../src",
     "tns-core-modules": "~6.5.0"
   },
   "devDependencies": {

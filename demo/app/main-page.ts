@@ -3,7 +3,7 @@ import { Label } from 'tns-core-modules/ui/label';
 import { Page } from 'tns-core-modules/ui/page';
 import * as frameModule from "tns-core-modules/ui/frame";
 import { HelloWorldModel } from './main-view-model';
-import { AdobeAnalytics } from "nativescript-adobe-marketing-cloud";
+import { AdobeAnalytics } from "nativescript-adobe-experience-cloud";
 import * as view from "tns-core-modules/ui/core/view";
 
 // Event handler for Page 'loaded' event attached in main-page.xml

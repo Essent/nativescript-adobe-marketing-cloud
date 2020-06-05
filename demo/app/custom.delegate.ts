@@ -1,5 +1,5 @@
 import { ios } from "tns-core-modules/application";
-import { AdobeAnalytics } from 'nativescript-adobe-marketing-cloud';
+import { AdobeAnalytics } from 'nativescript-adobe-experience-cloud';
 import { adobeExperienceSettings } from '~/config'; 
 
 if (ios) {
