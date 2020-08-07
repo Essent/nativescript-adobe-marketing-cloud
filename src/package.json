@@ -1,6 +1,6 @@
 {
     "name": "nativescript-adobe-experience-cloud",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "description": "Nativescript Adobe experience cloud integration plugin",
     "main": "adobe-analytics",
     "typings": "index.d.ts",
