@@ -10,6 +10,7 @@ import Analytics = com.adobe.marketing.mobile.Analytics;
 import UserProfile = com.adobe.marketing.mobile.UserProfile;
 import MobilePrivacyStatus = com.adobe.marketing.mobile.MobilePrivacyStatus;
 import AdobeCallbackWithError = com.adobe.marketing.mobile.AdobeCallbackWithError;
+import AdobeCallback = com.adobe.marketing.mobile.AdobeCallback;
 export class AdobeAnalytics extends AdobeAnalyticsCommon {
     protected static _instance: AdobeAnalyticsCommon = new AdobeAnalytics();
 
@@ -63,6 +64,26 @@ export class AdobeAnalytics extends AdobeAnalyticsCommon {
 
     public optOut(): void {
         MobileCore.setPrivacyStatus(MobilePrivacyStatus.OPT_OUT);
+    }
+
+    public getExperienceCloudId(): Promise<string> {
+        return new Promise((resolve, reject) => {
+            Identity.getExperienceCloudId(new AdobeCallback({
+                call(param: string): void {
+                    resolve(param);
+                }
+            }));
+        });
+    }
+
+    public getIdentityInfoVariables(): Promise<string> {
+        return new Promise((resolve, reject) => {
+            Identity.getUrlVariables(new AdobeCallback({
+                call(params: string): void {
+                    resolve(params);
+               }
+            }));
+        });
     }
 
     private convertToHashMap(dictionary: { [key: string]: any } = {}): java.util.Map<string, string> {
