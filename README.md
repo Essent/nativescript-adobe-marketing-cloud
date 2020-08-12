@@ -16,7 +16,7 @@ Get the Adobe Experience Platform SDK https://aep-sdks.gitbook.io/docs/getting-s
 Create a configuration file and place your ENVIRONMENT_ID from Adobe Experience platform.
 
 ```ts
-import { AdobeAnalyticsSettings } from "nativescript-adobe-experience-cloud";
+import { AdobeAnalyticsSettings } from "@essent/nativescript-adobe-experience-cloud";
 
 export const adobeExperienceSettings: AdobeAnalyticsSettings = {
     environmentId: 'Put your environment id here.',
