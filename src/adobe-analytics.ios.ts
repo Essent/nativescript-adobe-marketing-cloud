@@ -44,6 +44,32 @@ export class AdobeAnalytics extends AdobeAnalyticsCommon {
         ACPCore.setPrivacyStatus(ACPMobilePrivacyStatus.OptOut);
     }
 
+    public getExperienceCloudId(): Promise<string> {
+        return new Promise((resolve, reject) => {
+            ACPIdentity.getExperienceCloudIdWithCompletionHandler(function completitionHandler(params: string, error: NSError) {
+                if (error) {
+                    console.error('Error while trying to retrieve ECID. Error code: ' + error.code);
+                    reject (error);
+                } else {
+                    resolve(params);
+                }
+            });
+        });
+    }
+
+    public getIdentityInfoVariables(): Promise<string> {
+        return new Promise((resolve, reject) => {
+            ACPIdentity.getUrlVariablesWithCompletionHandler(function completitionHandler(params: string, error: NSError) {
+                if (error) {
+                    console.error('Error while trying to retrieve identity URL variables. Error code: ' + error.code);
+                    reject(error);
+                } else {
+                    resolve(params);
+                }
+            });
+        });
+    }
+
     /**
      * Should be called from applicationWillEnterForeground IOS delegate
      */

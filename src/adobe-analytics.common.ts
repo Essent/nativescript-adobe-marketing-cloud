@@ -20,6 +20,8 @@ export abstract class AdobeAnalyticsCommon {
   public abstract trackAction(action: string, additional: { [key: string]: any }): void;
   public abstract optIn(): void;
   public abstract optOut(): void;
+  public abstract getExperienceCloudId(): Promise<string>;
+  public abstract getIdentityInfoVariables(): Promise<string>;
 }
 
 export interface AdobeAnalyticsSettings {

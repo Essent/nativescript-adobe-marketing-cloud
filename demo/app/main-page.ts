@@ -11,6 +11,7 @@ export function pageLoaded(args: EventData) {
     // Get the event sender
     let page = <Page>args.object;
     page.bindingContext = new HelloWorldModel();
+    AdobeAnalytics.getInstance().getExperienceCloudId().then(param => console.log('ECID: ' + param));
 }
 
 export function action(): void {
