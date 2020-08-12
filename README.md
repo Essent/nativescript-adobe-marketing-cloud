@@ -48,7 +48,7 @@ class MyCustomApplication extends android.app.Application {
 ### IOS
 
 ```ts
-import { AdobeAnalytics } from 'nativescript-adobe-experience-cloud';
+import { AdobeAnalytics } from '@essent/nativescript-adobe-experience-cloud';
 import { adobeExperienceSettings } from '~/config'; 
 
 class MyDelegate extends UIResponder implements UIApplicationDelegate {
