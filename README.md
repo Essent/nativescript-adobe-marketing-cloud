@@ -2,7 +2,7 @@
 [![npm version](https://badge.fury.io/js/nativescript-adobe-experience-cloud.svg)](https://badge.fury.io/js/nativescript-adobe-experience-cloud)
 
 ```
-npm install nativescript-adobe-experience-cloud --save
+npm install @essent/nativescript-adobe-experience-cloud --save
 ```
 This plugin is based on Nativescript 6 and Adobe Experience Platform solution 
 
@@ -28,7 +28,7 @@ export const adobeExperienceSettings: AdobeAnalyticsSettings = {
 ### Android
 
 ```ts
-import { AdobeAnalytics } from 'nativescript-adobe-experience-cloud';
+import { AdobeAnalytics } from '@essent/nativescript-adobe-experience-cloud';
 import { adobeExperienceSettings } from '~/config'; 
 
 @JavaProxy('com.tns.NativeScriptApplication')
@@ -71,7 +71,7 @@ class MyDelegate extends UIResponder implements UIApplicationDelegate {
 With onResume function start Lifecycle data collection:
 
 ```ts
-import {AdobeAnalytics} from "nativescript-adobe-experience-cloud";
+import {AdobeAnalytics} from "@essent/nativescript-adobe-experience-cloud";
 
 public onResume() : void {
         AdobeAnalytics.getInstance().resumeCollectingLifecycleData();

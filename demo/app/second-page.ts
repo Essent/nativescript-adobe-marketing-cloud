@@ -2,7 +2,7 @@ import * as observable from "tns-core-modules/data/observable";
 import * as pages from "tns-core-modules/ui/page";
 import { SecondPageModel } from "./second-view-model";
 import * as frameModule from "tns-core-modules/ui/frame";
-import { AdobeAnalytics } from "nativescript-adobe-experience-cloud";
+import { AdobeAnalytics } from "@essent/nativescript-adobe-experience-cloud";
 
 // Event handler for Page "loaded" event attached in second-page.xml
 export function pageLoaded(args: observable.EventData) {
