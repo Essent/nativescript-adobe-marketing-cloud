@@ -4,7 +4,7 @@
 ```
 npm install nativescript-adobe-experience-cloud --save
 ```
-This plugin is based on Nativescript 6 and Adobe Experience Platform solution 
+This plugin is based on Nativescript 7 and Adobe Experience Platform solution 
 
 https://github.com/Adobe-Marketing-Cloud/acp-sdks/releases
 Get the Adobe Experience Platform SDK https://aep-sdks.gitbook.io/docs/getting-started/get-the-sdk
@@ -31,8 +31,9 @@ export const adobeExperienceSettings: AdobeAnalyticsSettings = {
 import { AdobeAnalytics } from 'nativescript-adobe-experience-cloud';
 import { adobeExperienceSettings } from '~/config'; 
 
-@JavaProxy('com.tns.NativeScriptApplication')
-class MyCustomApplication extends android.app.Application {
+@NativeClass()
+@JavaProxy('nl.essent.Application')
+class Application extends android.app.Application {
 
     public onCreate(): void {
         super.onCreate();
@@ -51,6 +52,7 @@ class MyCustomApplication extends android.app.Application {
 import { AdobeAnalytics } from 'nativescript-adobe-experience-cloud';
 import { adobeExperienceSettings } from '~/config'; 
 
+@NativeClass()
 class MyDelegate extends UIResponder implements UIApplicationDelegate {
     public static ObjCProtocols = [UIApplicationDelegate];
 

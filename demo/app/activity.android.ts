@@ -1,6 +1,7 @@
-import {setActivityCallbacks, AndroidActivityCallbacks} from "tns-core-modules/ui/frame";
+import { setActivityCallbacks, AndroidActivityCallbacks } from "@nativescript/core";
 import { AdobeAnalytics } from 'nativescript-adobe-experience-cloud';
 
+@NativeClass()
 @JavaProxy("nl.essent.NatasasCustomActivity")
 class Activity extends androidx.appcompat.app.AppCompatActivity {
     public isNativeScriptActivity;

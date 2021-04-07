@@ -1,20 +1,22 @@
 {
-  "nativescript": {
-    "id": "org.nativescript.demo",
-    "tns-android": {
-      "version": "6.5.0"
-    },
-    "tns-ios": {
-      "version": "6.5.0"
-    }
-  },
   "dependencies": {
-    "@nativescript/theme": "~2.3.3",
+    "@nativescript/core": "~7.0.3",
     "nativescript-adobe-experience-cloud": "file:../src",
-    "tns-core-modules": "~6.5.0"
+    "nativescript-theme-core": "^1.0.6",
+    "nativescript-unit-test-runner": "0.7.0"
   },
   "devDependencies": {
-    "nativescript-dev-webpack": "~1.5.1",
-    "typescript": "~3.5.3"
-  }
+    "@nativescript/android": "7.0.0",
+    "@nativescript/ios": "7.0.0",
+    "@nativescript/types": "~7.0.3",
+    "@nativescript/webpack": "^4.1.0",
+    "jasmine-core": "^2.5.2",
+    "karma": "4.1.0",
+    "karma-jasmine": "2.0.1",
+    "karma-nativescript-launcher": "^0.4.0",
+    "karma-webpack": "3.0.5",
+    "tslint": "^6.1.3",
+    "typescript": "~3.9.7"
+  },
+  "main": "app.js"
 }

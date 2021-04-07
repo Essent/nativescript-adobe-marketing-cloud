@@ -16,6 +16,7 @@ declare module com {
 	export module adobe {
 		export module marketing {
 			export module mobile {
+				@NativeClass()
 				export abstract class AbstractHitSchema<T>  extends java.lang.Object {
 					public static class: java.lang.Class<com.adobe.marketing.mobile.AbstractHitSchema<any>>;
 				}
@@ -53,6 +54,7 @@ declare module com {
 	export module adobe {
 		export module marketing {
 			export module mobile {
+				@NativeClass()
 				export class AdobeCallback<T>  extends java.lang.Object {
 					public static class: java.lang.Class<com.adobe.marketing.mobile.AdobeCallback<any>>;
 					/**
@@ -1709,6 +1711,7 @@ declare module com {
 	export module adobe {
 		export module marketing {
 			export module mobile {
+				@NativeClass()
 				export class ExtensionErrorCallback<ExtensionError>  extends java.lang.Object {
 					public static class: java.lang.Class<com.adobe.marketing.mobile.ExtensionErrorCallback<any>>;
 					/**
@@ -1853,6 +1856,7 @@ declare module com {
 					public queue(param0: any): boolean;
 				}
 				export module HitQueue {
+					@NativeClass()
 					export class IHitProcessor<T>  extends java.lang.Object {
 						public static class: java.lang.Class<com.adobe.marketing.mobile.HitQueue.IHitProcessor<any>>;
 						/**
@@ -2730,6 +2734,7 @@ declare module com {
 	export module adobe {
 		export module marketing {
 			export module mobile {
+				@NativeClass()
 				export abstract class ModuleEventDispatcher<T>  extends java.lang.Object {
 					public static class: java.lang.Class<com.adobe.marketing.mobile.ModuleEventDispatcher<any>>;
 					public parentModule: T;
@@ -3044,6 +3049,7 @@ declare module com {
 	export module adobe {
 		export module marketing {
 			export module mobile {
+				@NativeClass()
 				export class RangedResolver<T>  extends java.lang.Object {
 					public static class: java.lang.Class<com.adobe.marketing.mobile.RangedResolver<any>>;
 				}
@@ -4092,6 +4098,7 @@ declare module com {
 	export module adobe {
 		export module marketing {
 			export module mobile {
+				@NativeClass()
 				export class VariantSerializer<T>  extends java.lang.Object {
 					public static class: java.lang.Class<com.adobe.marketing.mobile.VariantSerializer<any>>;
 					/**
