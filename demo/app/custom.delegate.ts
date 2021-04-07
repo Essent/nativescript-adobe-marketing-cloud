@@ -1,8 +1,9 @@
-import { ios } from "tns-core-modules/application";
+import { ios } from "@nativescript/core/application";
 import { AdobeAnalytics } from 'nativescript-adobe-experience-cloud';
 import { adobeExperienceSettings } from '~/config'; 
 
 if (ios) {
+    @NativeClass()
     class MyDelegate extends UIResponder implements UIApplicationDelegate {
         public static ObjCProtocols = [UIApplicationDelegate];
 

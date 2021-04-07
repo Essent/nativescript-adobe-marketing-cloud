@@ -2,8 +2,9 @@ import { AdobeAnalytics } from 'nativescript-adobe-experience-cloud';
 import { adobeExperienceSettings } from '~/config'; 
 
 // the `JavaProxy` decorator specifies the package and the name for the native *.JAVA file generated.
-@JavaProxy('com.tns.NativeScriptApplication')
-class MyCustomApplication extends android.app.Application {
+@NativeClass()
+@JavaProxy('nl.essent.Application')
+class Application extends android.app.Application {
 
     public onCreate(): void {
         super.onCreate();
@@ -16,4 +17,4 @@ class MyCustomApplication extends android.app.Application {
 }
 
 /* tslint:disable */
-MyCustomApplication;
+Application;

@@ -1,10 +1,10 @@
-import { EventData } from 'tns-core-modules/data/observable';
-import { Label } from 'tns-core-modules/ui/label';
-import { Page } from 'tns-core-modules/ui/page';
-import * as frameModule from "tns-core-modules/ui/frame";
+import { EventData } from '@nativescript/core';
+import { Label } from '@nativescript/core';
+import { Page } from '@nativescript/core';
+import { Frame } from "@nativescript/core";
 import { HelloWorldModel } from './main-view-model';
 import { AdobeAnalytics } from "nativescript-adobe-experience-cloud";
-import * as view from "tns-core-modules/ui/core/view";
+import { View } from '@nativescript/core';
 
 // Event handler for Page 'loaded' event attached in main-page.xml
 export function pageLoaded(args: EventData) {
@@ -22,7 +22,7 @@ export function action(): void {
 }
 
 export function nextState(): void {
-    let topmost = frameModule.topmost();
+    let topmost = Frame.topmost();
     topmost.navigate("second-page");
     let data: { [id: string]: any } = {
         "StateData": "ThisIsDataFromTheFirstState"

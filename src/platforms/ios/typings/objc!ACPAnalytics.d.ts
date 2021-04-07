@@ -1,4 +1,5 @@
 
+@NativeClass()
 declare class ACPAnalytics extends NSObject {
 
 	static alloc(): ACPAnalytics; // inherited from NSObject
