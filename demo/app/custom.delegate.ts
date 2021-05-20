@@ -1,5 +1,5 @@
 import { ios } from "@nativescript/core/application";
-import { AdobeAnalytics } from 'nativescript-adobe-experience-cloud';
+import { AdobeAnalytics } from '@essent/nativescript-adobe-experience-cloud';
 import { adobeExperienceSettings } from '~/config'; 
 
 if (ios) {

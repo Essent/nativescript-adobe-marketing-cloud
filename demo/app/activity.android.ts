@@ -1,5 +1,5 @@
 import { setActivityCallbacks, AndroidActivityCallbacks } from "@nativescript/core";
-import { AdobeAnalytics } from 'nativescript-adobe-experience-cloud';
+import { AdobeAnalytics } from '@essent/nativescript-adobe-experience-cloud';
 
 @NativeClass()
 @JavaProxy("nl.essent.NatasasCustomActivity")

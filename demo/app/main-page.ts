@@ -1,6 +1,6 @@
 import { EventData, Page, Frame } from '@nativescript/core';
 import { HelloWorldModel } from './main-view-model';
-import { AdobeAnalytics } from "nativescript-adobe-experience-cloud";
+import { AdobeAnalytics } from "@essent/nativescript-adobe-experience-cloud";
 
 // Event handler for Page 'loaded' event attached in main-page.xml
 export function pageLoaded(args: EventData) {
