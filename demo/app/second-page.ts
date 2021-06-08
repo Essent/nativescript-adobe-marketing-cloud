@@ -1,6 +1,6 @@
 import { EventData, Page, Frame } from "@nativescript/core";
 import { SecondPageModel } from "./second-view-model";
-import { AdobeAnalytics } from "nativescript-adobe-experience-cloud";
+import { AdobeAnalytics } from "@essent/nativescript-adobe-experience-cloud";
 
 // Event handler for Page "loaded" event attached in second-page.xml
 export function pageLoaded(args: EventData) {

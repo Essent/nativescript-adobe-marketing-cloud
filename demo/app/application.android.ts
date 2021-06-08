@@ -1,4 +1,4 @@
-import { AdobeAnalytics } from 'nativescript-adobe-experience-cloud';
+import { AdobeAnalytics } from '@essent/nativescript-adobe-experience-cloud';
 import { adobeExperienceSettings } from '~/config'; 
 
 // the `JavaProxy` decorator specifies the package and the name for the native *.JAVA file generated.

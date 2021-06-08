@@ -1,7 +1,7 @@
 {
   "dependencies": {
+    "@essent/nativescript-adobe-experience-cloud": "file:../src",
     "@nativescript/core": "~7.0.3",
-    "nativescript-adobe-experience-cloud": "file:../src",
     "nativescript-theme-core": "^1.0.6",
     "nativescript-unit-test-runner": "0.7.0"
   },

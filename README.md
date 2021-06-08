@@ -2,7 +2,7 @@
 [![npm version](https://badge.fury.io/js/nativescript-adobe-experience-cloud.svg)](https://badge.fury.io/js/nativescript-adobe-experience-cloud)
 
 ```
-npm install nativescript-adobe-experience-cloud --save
+npm install @essent/nativescript-adobe-experience-cloud --save
 ```
 This plugin is based on Nativescript 7 and Adobe Experience Platform solution 
 
@@ -16,7 +16,7 @@ Get the Adobe Experience Platform SDK https://aep-sdks.gitbook.io/docs/getting-s
 Create a configuration file and place your ENVIRONMENT_ID from Adobe Experience platform.
 
 ```ts
-import { AdobeAnalyticsSettings } from "nativescript-adobe-experience-cloud";
+import { AdobeAnalyticsSettings } from "@essent/nativescript-adobe-experience-cloud";
 
 export const adobeExperienceSettings: AdobeAnalyticsSettings = {
     environmentId: 'Put your environment id here.',
@@ -28,7 +28,7 @@ export const adobeExperienceSettings: AdobeAnalyticsSettings = {
 ### Android
 
 ```ts
-import { AdobeAnalytics } from 'nativescript-adobe-experience-cloud';
+import { AdobeAnalytics } from '@essent/nativescript-adobe-experience-cloud';
 import { adobeExperienceSettings } from '~/config'; 
 
 @NativeClass()
@@ -49,7 +49,7 @@ class Application extends android.app.Application {
 ### IOS
 
 ```ts
-import { AdobeAnalytics } from 'nativescript-adobe-experience-cloud';
+import { AdobeAnalytics } from '@essent/nativescript-adobe-experience-cloud';
 import { adobeExperienceSettings } from '~/config'; 
 
 @NativeClass()
@@ -73,7 +73,7 @@ class MyDelegate extends UIResponder implements UIApplicationDelegate {
 With onResume function start Lifecycle data collection:
 
 ```ts
-import {AdobeAnalytics} from "nativescript-adobe-experience-cloud";
+import {AdobeAnalytics} from "@essent/nativescript-adobe-experience-cloud";
 
 public onResume() : void {
         AdobeAnalytics.getInstance().resumeCollectingLifecycleData();
