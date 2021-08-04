@@ -20,4 +20,5 @@ export declare class AdobeAnalytics extends AdobeAnalyticsCommon {
     getExperienceCloudId(): Promise<string>;
     getIdentityInfoVariables(): Promise<string>;
     private convertToHashMap;
+    startAssuranceSession(url: any): void;
 }
