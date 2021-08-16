@@ -1,16 +1,13 @@
-import { EventData } from 'tns-core-modules/data/observable';
-import { Label } from 'tns-core-modules/ui/label';
-import { Page } from 'tns-core-modules/ui/page';
-import * as frameModule from "tns-core-modules/ui/frame";
+import { EventData, Page, Frame } from '@nativescript/core';
 import { HelloWorldModel } from './main-view-model';
-import { AdobeAnalytics } from "nativescript-adobe-marketing-cloud";
-import * as view from "tns-core-modules/ui/core/view";
+import { AdobeAnalytics } from "@essent/nativescript-adobe-experience-cloud";
 
 // Event handler for Page 'loaded' event attached in main-page.xml
 export function pageLoaded(args: EventData) {
     // Get the event sender
     let page = <Page>args.object;
     page.bindingContext = new HelloWorldModel();
+    AdobeAnalytics.getInstance().getExperienceCloudId().then(param => console.log('ECID: ' + param));
 }
 
 export function action(): void {
@@ -21,7 +18,7 @@ export function action(): void {
 }
 
 export function nextState(): void {
-    let topmost = frameModule.topmost();
+    let topmost = Frame.topmost();
     topmost.navigate("second-page");
     let data: { [id: string]: any } = {
         "StateData": "ThisIsDataFromTheFirstState"
@@ -35,14 +32,4 @@ export function optIn(): void {
 
 export function optOut(): void {
     AdobeAnalytics.getInstance().optOut();
-}
-
-export function appendVisitorId(args): void {
-    let sender = args.object;
-    let parent = sender.parent;
-
-    let lbl: Label = view.getViewById(parent, "LblAppendVisitorId") as Label;
-    if (lbl) {
-        lbl.text = AdobeAnalytics.getInstance().visitorAppendToURL('http://www.urlPlaceholder.org');
-    }
 }

@@ -1,57 +1,79 @@
 import { AdobeAnalyticsCommon } from './adobe-analytics.common';
+import { AdobeAnalyticsSettings } from './adobe-analytics.common';
 
 export class AdobeAnalytics extends AdobeAnalyticsCommon {
     protected static _instance: AdobeAnalyticsCommon = new AdobeAnalytics();
 
-    public setContext(applicationContext: any): void {
-        // not applicable for iOS
+    public initSdk(adobeAnalyticsSettings: AdobeAnalyticsSettings, app: UIApplication): void {
+        ACPCore.setLogLevel(adobeAnalyticsSettings.debug ? ACPMobileLogLevel.Debug : ACPMobileLogLevel.Error);
+        ACPCore.configureWithAppId(adobeAnalyticsSettings.environmentId);
+        ACPUserProfile.registerExtension();
+        ACPIdentity.registerExtension();
+        ACPLifecycle.registerExtension();
+        ACPSignal.registerExtension();
+        ACPAnalytics.registerExtension();
+        ACPCore.start(function callback() {
+            if (app.applicationState !== UIApplicationState.Background) {
+                ACPCore.lifecycleStart(null);
+            }
+        });
     }
 
-    public collectLifecycleData(activity: any, debugLogging: boolean = true): void {
-        ADBMobile.setDebugLogging(debugLogging);
-        ADBMobile.collectLifecycleData();
+    public collectLifecycleData(additional: { [key: string]: any }): void {
+        ACPCore.lifecycleStart(<NSDictionary<string, string>>additional);
     }
 
-    public pauseCollectingLifecycleData() {
-        // not applicable for iOS
+    // Should be called on applicationDidEnterBackground
+    public pauseCollectingLifecycleData(): void {
+        ACPCore.lifecyclePause();
     }
 
     public trackState(state: string, additional: { [key: string]: any }): void {
-        ADBMobile.trackStateData(state, <NSDictionary<any, any>>additional);
+        ACPCore.trackStateData(state, <NSDictionary<string, string>>additional);
     }
 
     public trackAction(action: string, additional: { [key: string]: any }): void {
-        ADBMobile.trackActionData(action, <NSDictionary<any, any>>additional);
-    }
-
-    public trackTimedActionStart(action: string, additional: { [key: string]: any }): void {
-        ADBMobile.trackTimedActionStartData(action, <NSDictionary<any, any>>additional);
-    }
-
-    public trackTimedActionUpdate(action: string, additional: { [key: string]: any }): void {
-        ADBMobile.trackTimedActionUpdateData(action, <NSDictionary<any, any>>additional);
-    }
-
-    public trackTimedActionEnd(action: string): void {
-        ADBMobile.trackTimedActionEndLogic(action, null);
-    }
-
-    public visitorAppendToURL(url: string): string {
-        const nsurl = NSURL.URLWithString(url);
-        const urlWithVisitorData = ADBMobile.visitorAppendToURL(nsurl);
-
-        return urlWithVisitorData.absoluteString;
-    }
-
-    public trackLocation(location: CLLocation, additional: { [key: string]: any; }): void {
-        ADBMobile.trackLocationData(location, <NSDictionary<any, any>>additional);
+        ACPCore.trackActionData(action, <NSDictionary<string, string>>additional);
     }
 
     public optIn(): void {
-        ADBMobile.setPrivacyStatus(ADBMobilePrivacyStatus.OptIn);
+        ACPCore.setPrivacyStatus(ACPMobilePrivacyStatus.OptIn);
     }
 
     public optOut(): void {
-        ADBMobile.setPrivacyStatus(ADBMobilePrivacyStatus.OptOut);
+        ACPCore.setPrivacyStatus(ACPMobilePrivacyStatus.OptOut);
+    }
+
+    public getExperienceCloudId(): Promise<string> {
+        return new Promise((resolve, reject) => {
+            ACPIdentity.getExperienceCloudIdWithCompletionHandler(function completitionHandler(params: string, error: NSError) {
+                if (error) {
+                    console.error('Error while trying to retrieve ECID. Error code: ' + error.code);
+                    reject (error);
+                } else {
+                    resolve(params);
+                }
+            });
+        });
+    }
+
+    public getIdentityInfoVariables(): Promise<string> {
+        return new Promise((resolve, reject) => {
+            ACPIdentity.getUrlVariablesWithCompletionHandler(function completitionHandler(params: string, error: NSError) {
+                if (error) {
+                    console.error('Error while trying to retrieve identity URL variables. Error code: ' + error.code);
+                    reject(error);
+                } else {
+                    resolve(params);
+                }
+            });
+        });
+    }
+
+    /**
+     * Should be called from applicationWillEnterForeground IOS delegate
+     */
+    public resumeCollectingLifecycleData(): void {
+        ACPCore.lifecycleStart(null);
     }
 }
