@@ -15,6 +15,3 @@ class Application extends android.app.Application {
         super.attachBaseContext(baseContext);
     }
 }
-
-/* tslint:disable */
-Application;

@@ -1,14 +1,14 @@
-import { ios } from "@nativescript/core/application";
+import { Application } from "@nativescript/core";
 import { AdobeAnalytics } from '@essent/nativescript-adobe-experience-cloud';
 import { adobeExperienceSettings } from '~/config'; 
 
-if (ios) {
+if (global.isIOS) {
     @NativeClass()
     class MyDelegate extends UIResponder implements UIApplicationDelegate {
         public static ObjCProtocols = [UIApplicationDelegate];
 
         applicationDidFinishLaunchingWithOptions(application: UIApplication, launchOptions: NSDictionary<string, any>): boolean {
-            AdobeAnalytics.getInstance().initSdk(adobeExperienceSettings, application);
+            AdobeAnalytics.getInstance().initSdk(adobeExperienceSettings, application.applicationState);
             return true;
         }
 
@@ -21,5 +21,5 @@ if (ios) {
         }
     }
 
-    ios.delegate = MyDelegate;
+    Application.ios.delegate = MyDelegate;
 }
