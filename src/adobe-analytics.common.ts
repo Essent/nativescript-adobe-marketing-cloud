@@ -12,7 +12,7 @@ export abstract class AdobeAnalyticsCommon {
         return AdobeAnalyticsCommon._instance;
     }
 
-  public abstract initSdk(adobeAnalyticsSettings: AdobeAnalyticsSettings, app: any): void; // app is type of globalAndroid.app.Application or UIApplication for IOS
+  public abstract initSdk(adobeAnalyticsSettings: AdobeAnalyticsSettings, app: any): void; // app is type of globalAndroid.app.Application or a number (applicationState) for IOS
   public abstract collectLifecycleData(additional: { [key: string]: any }): void;
   public abstract pauseCollectingLifecycleData(): void;
   public abstract resumeCollectingLifecycleData(): void;

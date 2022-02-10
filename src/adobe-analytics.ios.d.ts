@@ -2,7 +2,7 @@ import { AdobeAnalyticsCommon } from './adobe-analytics.common';
 import { AdobeAnalyticsSettings } from './adobe-analytics.common';
 export declare class AdobeAnalytics extends AdobeAnalyticsCommon {
     protected static _instance: AdobeAnalyticsCommon;
-    initSdk(adobeAnalyticsSettings: AdobeAnalyticsSettings, app: UIApplication): void;
+    initSdk(adobeAnalyticsSettings: AdobeAnalyticsSettings, applicationState: number): void;
     collectLifecycleData(additional: {
         [key: string]: any;
     }): void;
