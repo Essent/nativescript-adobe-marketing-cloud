@@ -8,6 +8,8 @@ import Signal = com.adobe.marketing.mobile.Signal;
 import Identity = com.adobe.marketing.mobile.Identity;
 import Analytics = com.adobe.marketing.mobile.Analytics;
 import UserProfile = com.adobe.marketing.mobile.UserProfile;
+import Assurance = com.adobe.marketing.mobile.Assurance;
+import Target = com.adobe.marketing.mobile.Target;
 import MobilePrivacyStatus = com.adobe.marketing.mobile.MobilePrivacyStatus;
 import AdobeCallbackWithError = com.adobe.marketing.mobile.AdobeCallbackWithError;
 import AdobeCallback = com.adobe.marketing.mobile.AdobeCallback;
@@ -20,6 +22,8 @@ export class AdobeAnalytics extends AdobeAnalyticsCommon {
         this.app = app;
         MobileCore.setApplication(this.app);
         MobileCore.setLogLevel(adobeAnalyticsSetting.debug ? LoggingMode.DEBUG : LoggingMode.ERROR);
+        Assurance.registerExtension();
+        Target.registerExtension();
         UserProfile.registerExtension();
         Identity.registerExtension();
         Lifecycle.registerExtension();
@@ -93,6 +97,10 @@ export class AdobeAnalytics extends AdobeAnalyticsCommon {
                 result.put(key, value);
                 return result;
             }, new java.util.HashMap<string, string>());
+    }
+
+    public startAssuranceSession(url: any) {
+        //not applicable for Android
     }
 
 }

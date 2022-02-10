@@ -18,6 +18,7 @@ export declare abstract class AdobeAnalyticsCommon {
     abstract optOut(): void;
     abstract getExperienceCloudId(): Promise<string>;
     abstract getIdentityInfoVariables(): Promise<string>;
+    abstract startAssuranceSession(url: any): any;
 }
 export interface AdobeAnalyticsSettings {
     environmentId: string;

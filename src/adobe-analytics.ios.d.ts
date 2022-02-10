@@ -18,4 +18,5 @@ export declare class AdobeAnalytics extends AdobeAnalyticsCommon {
     getExperienceCloudId(): Promise<string>;
     getIdentityInfoVariables(): Promise<string>;
     resumeCollectingLifecycleData(): void;
+    startAssuranceSession(url: NSURL): void;
 }

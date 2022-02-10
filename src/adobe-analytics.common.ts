@@ -22,6 +22,7 @@ export abstract class AdobeAnalyticsCommon {
   public abstract optOut(): void;
   public abstract getExperienceCloudId(): Promise<string>;
   public abstract getIdentityInfoVariables(): Promise<string>;
+  public abstract startAssuranceSession(url: any);
 }
 
 export interface AdobeAnalyticsSettings {
